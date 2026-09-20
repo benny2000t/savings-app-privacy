@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Savings App — Poupa com método. Conquista os teus objetivos.</title>
     
     <!-- Meta & SEO -->
-    <meta name="description" content="A aplicação de poupança offline-first, segura e inteligente. Define metas, prevê datas de conclusão com IA e controla o teu progresso com um design elegante.">
-    <meta name="keywords" content="poupança, savings app, finanças pessoais, metas financeiras, offline-first, google play">
+    <meta name="description" content="A aplicação de poupança offline-first, segura e inteligente para Android. Define metas, simula poupanças com projeções inteligentes e acompanha o teu progresso.">
+    <meta name="keywords" content="poupança, savings app, finanças pessoais, metas financeiras, offline-first, calculadora de poupança, google play">
     <meta property="og:title" content="Savings App — Poupa com método">
     <meta property="og:description" content="A aplicação de finanças pessoais elegante, offline-first e inteligente.">
     <meta property="og:image" content="assets/icon.png">
@@ -16,19 +16,18 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="icon" type="image/png" href="assets/icon.png">
 
-    <!-- ALL INLINE CRITICAL + COMPLETE CSS (Immune to browser cache) -->
     <style>
         :root {
             --bg-dark: #07090e;
             --bg-surface: #0e131f;
-            --bg-card: rgba(18, 24, 38, 0.7);
-            --bg-card-hover: rgba(28, 38, 60, 0.85);
+            --bg-card: rgba(18, 24, 38, 0.75);
+            --bg-card-hover: rgba(28, 38, 60, 0.9);
             --border-subtle: rgba(255, 255, 255, 0.08);
-            --border-glow: rgba(99, 102, 241, 0.35);
+            --border-glow: rgba(99, 102, 241, 0.4);
             
             --text-primary: #ffffff;
             --text-secondary: #94a3b8;
@@ -45,22 +44,23 @@
 
             --grad-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
             --grad-accent: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-            --grad-dark-card: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+            --grad-card: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
             
             --radius-sm: 8px;
             --radius-md: 14px;
             --radius-lg: 20px;
-            --radius-xl: 32px;
+            --radius-xl: 28px;
             --radius-full: 9999px;
 
-            --font-head: 'Plus Jakarta Sans', sans-serif;
-            --font-body: 'Inter', sans-serif;
+            --font-head: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html {
@@ -68,6 +68,8 @@
             background-color: var(--bg-dark);
             color: var(--text-primary);
             font-family: var(--font-body);
+            overflow-x: hidden;
+            width: 100%;
         }
 
         body {
@@ -75,6 +77,7 @@
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
+            width: 100%;
             position: relative;
             line-height: 1.6;
         }
@@ -85,42 +88,31 @@
             top: -150px;
             left: 50%;
             transform: translateX(-50%);
-            width: 850px;
-            height: 600px;
+            width: min(850px, 100vw);
+            height: 500px;
             background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.18) 0%, rgba(168, 85, 247, 0.08) 45%, transparent 70%);
-            filter: blur(70px);
+            filter: blur(60px);
             pointer-events: none;
             z-index: 0;
         }
 
         .ambient-glow-2 {
             position: absolute;
-            top: 750px;
-            right: -100px;
-            width: 600px;
-            height: 600px;
+            top: 900px;
+            right: 0;
+            width: min(500px, 80vw);
+            height: 500px;
             background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .ambient-glow-3 {
-            position: absolute;
-            top: 1700px;
-            left: -100px;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 70%);
-            filter: blur(90px);
+            filter: blur(70px);
             pointer-events: none;
             z-index: 0;
         }
 
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
             position: relative;
             z-index: 2;
         }
@@ -130,52 +122,54 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(7, 9, 14, 0.8);
+            background: rgba(7, 9, 14, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-subtle);
-            padding: 14px 0;
+            padding: 12px 0;
+            width: 100%;
         }
 
         .nav-wrap {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 12px;
         }
 
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
             color: #ffffff;
             font-family: var(--font-head);
             font-weight: 800;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             letter-spacing: -0.02em;
+            flex-shrink: 0;
         }
 
         .nav-logo {
-            width: 36px;
-            height: 36px;
-            max-width: 36px;
-            max-height: 36px;
-            border-radius: 9px;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
             display: block;
             object-fit: cover;
+            flex-shrink: 0;
         }
 
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 20px;
         }
 
         .nav-link {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.2s ease;
         }
@@ -184,60 +178,53 @@
             color: #ffffff;
         }
 
-        /* ================= BUTTONS ================= */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-            font-family: var(--font-head);
+        .btn-nav-play {
+            background: rgba(99, 102, 241, 0.15);
+            color: #c7d2fe;
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            padding: 7px 14px;
+            font-size: 0.82rem;
             font-weight: 600;
             border-radius: var(--radius-full);
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        .btn-nav-play {
-            background: rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 8px 18px;
-            font-size: 0.88rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            white-space: nowrap;
         }
 
         .btn-nav-play:hover {
-            background: rgba(255, 255, 255, 0.14);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-1px);
+            background: rgba(99, 102, 241, 0.25);
+            color: #ffffff;
         }
 
+        /* ================= BUTTONS ================= */
         .btn-play-hero {
             background: #000000;
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.22);
-            padding: 12px 26px;
+            padding: 10px 22px;
             border-radius: var(--radius-md);
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8), 0 0 20px -5px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(99, 102, 241, 0.4);
             display: inline-flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
+            text-decoration: none;
             transition: all 0.25s ease;
+            max-width: 100%;
         }
 
         .btn-play-hero:hover {
             background: #111116;
             border-color: rgba(255, 255, 255, 0.45);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.9), 0 0 30px -5px rgba(99, 102, 241, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.9), 0 0 25px -5px rgba(99, 102, 241, 0.6);
         }
 
         .btn-play-hero svg {
-            width: 28px;
-            height: 28px;
-            max-width: 28px;
-            max-height: 28px;
+            width: 26px;
+            height: 26px;
             flex-shrink: 0;
         }
 
@@ -249,7 +236,7 @@
         }
 
         .btn-play-sub {
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -257,7 +244,7 @@
         }
 
         .btn-play-main {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: #ffffff;
         }
@@ -266,9 +253,15 @@
             background: rgba(255, 255, 255, 0.05);
             color: #ffffff;
             border: 1px solid var(--border-subtle);
-            padding: 15px 26px;
+            padding: 12px 20px;
             border-radius: var(--radius-md);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
         }
 
         .btn-secondary:hover {
@@ -279,46 +272,52 @@
 
         /* ================= HERO SECTION ================= */
         .hero {
-            padding: 90px 0 120px;
+            padding: 40px 0 80px;
             position: relative;
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
+            gap: 40px;
             align-items: center;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .pill-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 7px 16px;
+            padding: 6px 14px;
             background: rgba(99, 102, 241, 0.12);
             border: 1px solid rgba(99, 102, 241, 0.35);
             border-radius: var(--radius-full);
             color: #c7d2fe;
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             font-weight: 600;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .pill-dot {
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
             background: var(--emerald);
-            box-shadow: 0 0 10px var(--emerald);
+            box-shadow: 0 0 8px var(--emerald);
         }
 
         .hero-title {
             font-family: var(--font-head);
-            font-size: 3.8rem;
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
             font-weight: 800;
-            line-height: 1.08;
+            line-height: 1.1;
             letter-spacing: -0.035em;
-            margin-bottom: 22px;
+            margin-bottom: 18px;
         }
 
         .grad-text {
@@ -328,10 +327,10 @@
         }
 
         .hero-sub {
-            font-size: 1.18rem;
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
             color: var(--text-secondary);
-            line-height: 1.65;
-            margin-bottom: 38px;
+            line-height: 1.6;
+            margin-bottom: 30px;
             max-width: 520px;
         }
 
@@ -339,138 +338,145 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 42px;
+            gap: 14px;
+            margin-bottom: 34px;
+            width: 100%;
         }
 
         .hero-chips {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            padding-top: 24px;
+            gap: 16px;
+            padding-top: 20px;
             border-top: 1px solid var(--border-subtle);
+            width: 100%;
         }
 
         .hero-chip {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.88rem;
+            gap: 6px;
+            font-size: 0.84rem;
             color: var(--text-secondary);
             font-weight: 500;
         }
 
         .hero-chip-icon {
             color: var(--emerald);
-            display: flex;
-            align-items: center;
+            font-weight: bold;
         }
 
-        /* ================= 3D SMARTPHONE MOCKUP ================= */
+        /* ================= SMARTPHONE MOCKUP ================= */
         .mockup-container {
             position: relative;
             display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Floating Pill 1 */
-        .float-card-1 {
-            position: absolute;
-            top: 80px;
-            left: -30px;
-            background: rgba(14, 19, 31, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(16, 185, 129, 0.4);
-            border-radius: var(--radius-md);
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.2);
-            z-index: 10;
-            animation: floatSlow 5s ease-in-out infinite;
-        }
-
-        /* Floating Pill 2 */
-        .float-card-2 {
-            position: absolute;
-            bottom: 120px;
-            right: -25px;
-            background: rgba(14, 19, 31, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(99, 102, 241, 0.4);
-            border-radius: var(--radius-md);
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(99, 102, 241, 0.2);
-            z-index: 10;
-            animation: floatSlow 6s ease-in-out infinite reverse;
-        }
-
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .float-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
+        }
+
+        /* Interactive Phone Screen Switcher Tabs */
+        .mockup-tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            padding: 4px;
+            border-radius: var(--radius-full);
+            gap: 4px;
+            margin-bottom: 16px;
+            width: 100%;
+            max-width: 310px;
+        }
+
+        .mockup-tab-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 6px 8px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: var(--font-head);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .mockup-tab-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.5);
         }
 
         .phone-frame {
-            width: 320px;
-            height: 640px;
+            width: 100%;
+            max-width: 310px;
             background: #0b0e17;
-            border: 10px solid #1e2638;
-            border-radius: 48px;
-            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.9), 0 0 45px -10px rgba(99, 102, 241, 0.35);
+            border: 8px solid #1e2638;
+            border-radius: 42px;
+            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.9), 0 0 35px -10px rgba(99, 102, 241, 0.35);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             position: relative;
             z-index: 5;
+            min-height: 520px;
         }
 
         .phone-island {
-            width: 96px;
-            height: 22px;
+            width: 90px;
+            height: 20px;
             background: #1e2638;
-            border-radius: 0 0 14px 14px;
+            border-radius: 0 0 12px 12px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
+            flex-shrink: 0;
         }
 
         .island-lens {
-            width: 6px;
-            height: 6px;
+            width: 5px;
+            height: 5px;
             background: #000000;
             border-radius: 50%;
         }
 
         .island-speaker {
-            width: 30px;
+            width: 26px;
             height: 3px;
             background: #111624;
             border-radius: 2px;
         }
 
         .phone-body {
-            padding: 16px;
+            padding: 14px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            height: 100%;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .phone-screen-view {
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .phone-screen-view.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .phone-header {
@@ -479,32 +485,27 @@
             align-items: center;
         }
 
-        .phone-user {
-            display: flex;
-            flex-direction: column;
-        }
-
         .phone-user-sub {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             color: var(--text-muted);
         }
 
         .phone-user-title {
-            font-size: 1.05rem;
+            font-size: 0.98rem;
             font-weight: 700;
             font-family: var(--font-head);
             color: #ffffff;
         }
 
         .phone-avatar {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: var(--grad-primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             color: #ffffff;
         }
@@ -514,7 +515,7 @@
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(168, 85, 247, 0.15) 100%);
             border: 1px solid rgba(99, 102, 241, 0.4);
             border-radius: var(--radius-md);
-            padding: 14px;
+            padding: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -522,7 +523,7 @@
         }
 
         .mock-balance-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #c7d2fe;
             text-transform: uppercase;
             font-weight: 600;
@@ -530,25 +531,26 @@
         }
 
         .mock-balance-val {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 800;
             font-family: var(--font-head);
             color: #ffffff;
         }
 
         .mock-balance-pill {
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             color: var(--emerald-light);
             font-weight: 600;
         }
 
         .ring-svg-wrap {
             position: relative;
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .ring-svg {
@@ -577,17 +579,17 @@
         .mock-items {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .mock-item {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.07);
             border-radius: var(--radius-md);
-            padding: 12px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
 
         .mock-item-head {
@@ -599,14 +601,14 @@
         .mock-item-left {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .mock-emoji {
-            font-size: 1.1rem;
+            font-size: 1rem;
             background: rgba(255, 255, 255, 0.06);
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -614,13 +616,13 @@
         }
 
         .mock-item-name {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 600;
             color: #ffffff;
         }
 
         .mock-proj-tag {
-            font-size: 0.65rem;
+            font-size: 0.62rem;
             color: #c7d2fe;
             background: rgba(99, 102, 241, 0.2);
             padding: 2px 6px;
@@ -641,25 +643,14 @@
             border-radius: 3px;
         }
 
-        .fill-japan {
-            width: 82%;
-            background: linear-gradient(90deg, #ec4899, #f43f5e);
-        }
-
-        .fill-shield {
-            width: 65%;
-            background: linear-gradient(90deg, #10b981, #06b6d4);
-        }
-
-        .fill-car {
-            width: 38%;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
-        }
+        .fill-japan { width: 82%; background: linear-gradient(90deg, #ec4899, #f43f5e); }
+        .fill-shield { width: 65%; background: linear-gradient(90deg, #10b981, #06b6d4); }
+        .fill-car { width: 38%; background: linear-gradient(90deg, #6366f1, #8b5cf6); }
 
         .mock-item-foot {
             display: flex;
             justify-content: space-between;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             color: var(--text-muted);
         }
 
@@ -667,165 +658,499 @@
             color: #ffffff;
         }
 
-        /* ================= FEATURES SECTION ================= */
-        .section-wrap {
-            padding: 110px 0;
+        /* Screen 2: Smart Projections Mock View */
+        .proj-card {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .proj-badge {
+            font-size: 0.65rem;
+            color: #34d399;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .proj-date {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #ffffff;
+            font-family: var(--font-head);
+        }
+
+        .proj-desc {
+            font-size: 0.7rem;
+            color: #cbd5e1;
+            line-height: 1.4;
+        }
+
+        .history-mini-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hist-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 8px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.72rem;
+        }
+
+        .hist-plus { color: #34d399; font-weight: 700; }
+
+        /* Screen 3: Create Goal Mock View */
+        .mock-create-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mock-input-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 0.75rem;
+            color: #fff;
+        }
+
+        .mock-icon-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+        }
+
+        .mock-icon-chip {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .mock-icon-chip.selected {
+            background: rgba(99, 102, 241, 0.3);
+            border-color: #818cf8;
+        }
+
+        /* ================= METRICS STATS BANNER ================= */
+        .stats-section {
+            padding: 20px 0 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .stat-card {
+            background: var(--grad-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 24px 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-family: var(--font-head);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            background: var(--grad-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .stat-sub {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* ================= INTERACTIVE SAVINGS CALCULATOR ================= */
+        .calculator-section {
+            padding: 70px 0;
             position: relative;
+        }
+
+        .calc-wrapper {
+            background: linear-gradient(135deg, rgba(24, 33, 56, 0.9) 0%, rgba(14, 19, 31, 0.95) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            border-radius: var(--radius-xl);
+            padding: clamp(24px, 5vw, 50px);
+            box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.8), 0 0 40px -10px rgba(99, 102, 241, 0.25);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .calc-left h2 {
+            font-family: var(--font-head);
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .calc-left p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            margin-bottom: 28px;
+        }
+
+        .calc-control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .calc-control {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .calc-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .calc-val-display {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #818cf8;
+        }
+
+        .range-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            cursor: pointer;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            box-shadow: 0 0 12px var(--primary);
+            cursor: pointer;
+            border: 2px solid #ffffff;
+        }
+
+        .range-slider::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            box-shadow: 0 0 12px var(--primary);
+            cursor: pointer;
+            border: 2px solid #ffffff;
+        }
+
+        /* Calculator Result Box */
+        .calc-result-box {
+            background: #080c16;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: clamp(20px, 4vw, 32px);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calc-result-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--grad-primary);
+        }
+
+        .calc-res-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .calc-res-months {
+            font-family: var(--font-head);
+            font-size: clamp(2.4rem, 5vw, 3.2rem);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .calc-res-date {
+            font-size: 1.05rem;
+            color: var(--emerald-light);
+            font-weight: 700;
+        }
+
+        .calc-prog-bar-wrap {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 6px 0;
+        }
+
+        .calc-prog-bar-fill {
+            height: 100%;
+            width: 100%;
+            background: var(--grad-accent);
+            border-radius: 4px;
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.85; }
+            50% { opacity: 1; }
+        }
+
+        .calc-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ================= HOW IT WORKS (3 STEPS) ================= */
+        .steps-section {
+            padding: 70px 0;
         }
 
         .section-head {
             text-align: center;
             max-width: 680px;
-            margin: 0 auto 60px;
+            margin: 0 auto 50px;
         }
 
         .section-title {
             font-family: var(--font-head);
-            font-size: 2.6rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 800;
             letter-spacing: -0.03em;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             color: #ffffff;
         }
 
         .section-desc {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-secondary);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            position: relative;
+        }
+
+        .step-num-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            color: #a5b4fc;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-card h3 {
+            font-family: var(--font-head);
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .step-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        /* ================= FEATURES GRID ================= */
+        .features-section {
+            padding: 70px 0;
         }
 
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 20px;
         }
 
         .card-feature {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
-            padding: 34px 28px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
+            padding: 28px 22px;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
         }
 
-        .card-feature::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--grad-primary);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
         .card-feature:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
             background: var(--bg-card-hover);
             border-color: rgba(99, 102, 241, 0.4);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(99, 102, 241, 0.25);
-        }
-
-        .card-feature:hover::before {
-            opacity: 1;
         }
 
         .feature-icon-circle {
-            width: 52px;
-            height: 52px;
+            width: 48px;
+            height: 48px;
             border-radius: var(--radius-md);
             background: rgba(99, 102, 241, 0.12);
             border: 1px solid rgba(99, 102, 241, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 22px;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
         }
 
         .card-feature h3 {
             font-family: var(--font-head);
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #ffffff;
         }
 
         .card-feature p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.55;
         }
 
-        /* ================= SHOWCASE BANNER ================= */
-        .showcase-banner {
-            background: linear-gradient(135deg, rgba(20, 28, 48, 0.8) 0%, rgba(12, 17, 29, 0.9) 100%);
-            border: 1px solid rgba(99, 102, 241, 0.3);
+        /* ================= DESKTOP QR CODE & DOWNLOAD BANNER ================= */
+        .cta-section {
+            padding: 70px 0 100px;
+        }
+
+        .cta-card {
+            background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.3) 0%, rgba(14, 19, 31, 0.95) 75%);
+            border: 1px solid rgba(99, 102, 241, 0.4);
             border-radius: var(--radius-xl);
-            padding: 60px 48px;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: center;
-            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8);
+            padding: clamp(30px, 6vw, 60px) 24px;
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto;
+            box-shadow: 0 0 45px -10px rgba(99, 102, 241, 0.35);
         }
 
-        .showcase-banner h2 {
+        .cta-card h2 {
             font-family: var(--font-head);
-            font-size: 2.2rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 800;
-            margin-bottom: 18px;
-            line-height: 1.2;
+            margin-bottom: 14px;
         }
 
-        .showcase-banner p {
-            color: var(--text-secondary);
+        .cta-card p {
             font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 24px;
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin: 0 auto 30px;
         }
 
-        .check-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .check-item {
+        .cta-actions-wrap {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            color: #e2e8f0;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
         }
 
-        .check-icon {
-            color: var(--emerald);
-            flex-shrink: 0;
-            font-weight: bold;
-        }
-
-        .showcase-widget {
-            background: #080c16;
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 24px;
+        .qr-card-box {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .qr-card-box svg {
+            width: 88px;
+            height: 88px;
+            display: block;
+        }
+
+        .qr-card-text {
+            font-size: 0.65rem;
+            color: #0b0f19;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         /* ================= FAQ SECTION ================= */
+        .faq-section {
+            padding: 70px 0;
+        }
+
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 980px;
+            gap: 18px;
+            max-width: 960px;
             margin: 0 auto;
         }
 
@@ -833,54 +1158,28 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            padding: 26px;
+            padding: 22px;
         }
 
         .faq-box h4 {
             font-family: var(--font-head);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #ffffff;
         }
 
         .faq-box p {
             color: var(--text-secondary);
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
-
-        /* ================= CTA BOX ================= */
-        .cta-card {
-            background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.3) 0%, rgba(14, 19, 31, 0.95) 75%);
-            border: 1px solid rgba(99, 102, 241, 0.4);
-            border-radius: var(--radius-xl);
-            padding: 70px 30px;
-            text-align: center;
-            max-width: 880px;
-            margin: 0 auto;
-            box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.35);
-        }
-
-        .cta-card h2 {
-            font-family: var(--font-head);
-            font-size: 2.6rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-        }
-
-        .cta-card p {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            max-width: 560px;
-            margin: 0 auto 34px;
+            font-size: 0.9rem;
+            line-height: 1.55;
         }
 
         /* ================= FOOTER ================= */
         .footer {
             background: #05070a;
             border-top: 1px solid var(--border-subtle);
-            padding: 60px 0 30px;
+            padding: 50px 0 30px;
             color: var(--text-muted);
         }
 
@@ -889,14 +1188,14 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 28px;
-            padding-bottom: 40px;
+            gap: 24px;
+            padding-bottom: 30px;
         }
 
         .footer-brand {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
 
         .footer-brand-title {
@@ -905,29 +1204,27 @@
             gap: 10px;
             font-family: var(--font-head);
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: #ffffff;
         }
 
         .footer-logo {
-            width: 32px;
-            height: 32px;
-            max-width: 32px;
-            max-height: 32px;
-            border-radius: 8px;
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
             object-fit: cover;
         }
 
         .footer-nav {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .footer-nav a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             transition: color 0.2s ease;
         }
 
@@ -936,18 +1233,22 @@
         }
 
         .footer-copy {
-            padding-top: 24px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
         }
 
-        /* ================= RESPONSIVE ================= */
+        /* ================= MOBILE RESPONSIVENESS ================= */
         @media (max-width: 1024px) {
             .hero-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 50px;
+                gap: 40px;
+            }
+
+            .hero-left {
+                align-items: center;
             }
 
             .hero-sub {
@@ -963,18 +1264,47 @@
                 justify-content: center;
             }
 
+            .calc-wrapper {
+                grid-template-columns: 1fr;
+            }
+
             .cards-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .showcase-banner {
+            .steps-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
         @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 0;
+            }
+
+            .nav-menu .nav-link {
+                display: none;
+            }
+
+            .hero {
+                padding: 24px 0 50px;
+            }
+
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .stat-card {
+                padding: 16px;
             }
 
             .cards-grid {
@@ -985,12 +1315,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .float-card-1, .float-card-2 {
+            .qr-card-box {
                 display: none;
-            }
-
-            .nav-menu {
-                gap: 14px;
             }
 
             .footer-wrap {
@@ -1001,29 +1327,35 @@
             .footer-brand-title {
                 justify-content: center;
             }
+
+            .footer-nav {
+                justify-content: center;
+                gap: 14px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Background Ambient Glows -->
+    <!-- Background Glows -->
     <div class="ambient-glow-1"></div>
     <div class="ambient-glow-2"></div>
-    <div class="ambient-glow-3"></div>
 
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container nav-wrap">
             <a href="index.html" class="nav-brand">
-                <img src="assets/icon.png" alt="Savings App Icon" class="nav-logo" width="36" height="36">
+                <img src="assets/icon.png" alt="Savings App Icon" class="nav-logo" width="34" height="34">
                 <span>Savings App</span>
             </a>
             <div class="nav-menu">
+                <a href="#calculator" class="nav-link">Calculadora</a>
+                <a href="#how-it-works" class="nav-link">Como Funciona</a>
                 <a href="#features" class="nav-link">Funcionalidades</a>
-                <a href="#showcase" class="nav-link">Destaques</a>
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="privacy.html" class="nav-link">Privacidade</a>
-                <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer" class="btn btn-nav-play">
+                <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer" class="btn-nav-play">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/></svg>
                     Google Play
                 </a>
             </div>
@@ -1036,7 +1368,7 @@
             <div class="hero-left">
                 <div class="pill-badge">
                     <span class="pill-dot"></span>
-                    <span>Versão 1.1.2 • Disponível no Android</span>
+                    <span>Versão 1.1.2 • Google Play Store</span>
                 </div>
                 <h1 class="hero-title">
                     Poupa com método. <br>
@@ -1047,7 +1379,7 @@
                 </p>
                 <div class="hero-cta-group">
                     <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer" class="btn-play-hero">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
                             <path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/>
                         </svg>
                         <div class="btn-play-text">
@@ -1055,7 +1387,7 @@
                             <span class="btn-play-main">Google Play</span>
                         </div>
                     </a>
-                    <a href="#features" class="btn btn-secondary">Explorar Recursos ↓</a>
+                    <a href="#calculator" class="btn-secondary">Simular Poupança ↓</a>
                 </div>
                 <div class="hero-chips">
                     <div class="hero-chip">
@@ -1073,24 +1405,13 @@
                 </div>
             </div>
 
-            <!-- CSS Smartphone Mockup with Floating UI -->
+            <!-- Interactive Smartphone Mockup with Switcher -->
             <div class="mockup-container">
-                <!-- Floating Badge 1 -->
-                <div class="float-card-1">
-                    <div class="float-icon" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">📈</div>
-                    <div>
-                        <div style="font-size: 0.72rem; color: #94a3b8;">Projeção Inteligente</div>
-                        <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">Meta atingida em 35 dias!</div>
-                    </div>
-                </div>
-
-                <!-- Floating Badge 2 -->
-                <div class="float-card-2">
-                    <div class="float-icon" style="background: rgba(99, 102, 241, 0.2); color: #818cf8;">🛡️</div>
-                    <div>
-                        <div style="font-size: 0.72rem; color: #94a3b8;">Privacidade Total</div>
-                        <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">Base de dados SQLite Local</div>
-                    </div>
+                <!-- Switcher Tabs -->
+                <div class="mockup-tabs">
+                    <button type="button" class="mockup-tab-btn active" onclick="switchMockTab('dashboard')">📊 Dashboard</button>
+                    <button type="button" class="mockup-tab-btn" onclick="switchMockTab('projections')">📈 Projeções</button>
+                    <button type="button" class="mockup-tab-btn" onclick="switchMockTab('create')">🎯 Nova Meta</button>
                 </div>
 
                 <!-- Phone Frame -->
@@ -1100,84 +1421,134 @@
                         <div class="island-lens"></div>
                     </div>
                     <div class="phone-body">
-                        <!-- User Header -->
-                        <div class="phone-header">
-                            <div class="phone-user">
-                                <span class="phone-user-sub">Olá, bem-vindo 👋</span>
-                                <span class="phone-user-title">Minhas Metas</span>
+                        <!-- VIEW 1: DASHBOARD -->
+                        <div id="view-dashboard" class="phone-screen-view active">
+                            <div class="phone-header">
+                                <div class="phone-user">
+                                    <span class="phone-user-sub">Olá, bem-vindo 👋</span>
+                                    <span class="phone-user-title">Minhas Metas</span>
+                                </div>
+                                <div class="phone-avatar">BT</div>
                             </div>
-                            <div class="phone-avatar">BT</div>
+
+                            <div class="mock-balance-card">
+                                <div>
+                                    <div class="mock-balance-label">Total Poupado</div>
+                                    <div class="mock-balance-val">8.450,00 €</div>
+                                    <div class="mock-balance-pill">↑ +350 € este mês</div>
+                                </div>
+                                <div class="ring-svg-wrap">
+                                    <svg class="ring-svg" width="44" height="44" viewBox="0 0 36 36">
+                                        <path class="ring-circle-bg" stroke-width="3.5" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        <path class="ring-circle-progress" stroke-width="3.5" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    </svg>
+                                    <span class="ring-text">72%</span>
+                                </div>
+                            </div>
+
+                            <div class="mock-items">
+                                <div class="mock-item">
+                                    <div class="mock-item-head">
+                                        <div class="mock-item-left">
+                                            <div class="mock-emoji">✈️</div>
+                                            <div class="mock-item-name">Viagem ao Japão</div>
+                                        </div>
+                                        <span class="mock-proj-tag">Em ~1 mês</span>
+                                    </div>
+                                    <div class="mock-bar-wrap"><div class="mock-bar-fill fill-japan"></div></div>
+                                    <div class="mock-item-foot">
+                                        <span><strong>2.460 €</strong> de 3.000 €</span>
+                                        <span>82%</span>
+                                    </div>
+                                </div>
+
+                                <div class="mock-item">
+                                    <div class="mock-item-head">
+                                        <div class="mock-item-left">
+                                            <div class="mock-emoji">🛡️</div>
+                                            <div class="mock-item-name">Fundo Emergência</div>
+                                        </div>
+                                        <span class="mock-proj-tag">Em ~3 meses</span>
+                                    </div>
+                                    <div class="mock-bar-wrap"><div class="mock-bar-fill fill-shield"></div></div>
+                                    <div class="mock-item-foot">
+                                        <span><strong>3.250 €</strong> de 5.000 €</span>
+                                        <span>65%</span>
+                                    </div>
+                                </div>
+
+                                <div class="mock-item">
+                                    <div class="mock-item-head">
+                                        <div class="mock-item-left">
+                                            <div class="mock-emoji">🚗</div>
+                                            <div class="mock-item-name">Carro Novo</div>
+                                        </div>
+                                        <span class="mock-proj-tag">Em ritmo contínuo</span>
+                                    </div>
+                                    <div class="mock-bar-wrap"><div class="mock-bar-fill fill-car"></div></div>
+                                    <div class="mock-item-foot">
+                                        <span><strong>2.740 €</strong> de 7.500 €</span>
+                                        <span>38%</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Main Total Balance Card -->
-                        <div class="mock-balance-card">
-                            <div>
-                                <div class="mock-balance-label">Total Poupado</div>
-                                <div class="mock-balance-val">8.450,00 €</div>
-                                <div class="mock-balance-pill">↑ +350 € este mês</div>
+                        <!-- VIEW 2: PROJECTIONS -->
+                        <div id="view-projections" class="phone-screen-view">
+                            <div class="phone-header">
+                                <div class="phone-user">
+                                    <span class="phone-user-sub">Viagem ao Japão ✈️</span>
+                                    <span class="phone-user-title">Análise de Projeção</span>
+                                </div>
+                                <div class="mock-proj-tag">82%</div>
                             </div>
-                            <div class="ring-svg-wrap">
-                                <svg class="ring-svg" width="48" height="48" viewBox="0 0 36 36">
-                                    <path class="ring-circle-bg" stroke-width="3.5" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="ring-circle-progress" stroke-width="3.5" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                </svg>
-                                <span class="ring-text">72%</span>
+
+                            <div class="proj-card">
+                                <span class="proj-badge">🎯 Estimativa de Conclusão</span>
+                                <div class="proj-date">Novembro 2026</div>
+                                <p class="proj-desc">Mantendo a média de depósitos (+180 €/mês), a meta será batida antes do prazo previsto!</p>
+                            </div>
+
+                            <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700; text-transform: uppercase;">Últimos Depósitos</div>
+                            <div class="history-mini-list">
+                                <div class="hist-item">
+                                    <span>Depósito Mensal</span>
+                                    <span class="hist-plus">+200,00 €</span>
+                                </div>
+                                <div class="hist-item">
+                                    <span>Poupança Extra</span>
+                                    <span class="hist-plus">+150,00 €</span>
+                                </div>
+                                <div class="hist-item">
+                                    <span>Venda OLX</span>
+                                    <span class="hist-plus">+60,00 €</span>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Active Goals Items -->
-                        <div class="mock-items">
-                            <!-- Goal 1 -->
-                            <div class="mock-item">
-                                <div class="mock-item-head">
-                                    <div class="mock-item-left">
-                                        <div class="mock-emoji">✈️</div>
-                                        <div class="mock-item-name">Viagem ao Japão</div>
-                                    </div>
-                                    <span class="mock-proj-tag">Em ~1 mês</span>
-                                </div>
-                                <div class="mock-bar-wrap">
-                                    <div class="mock-bar-fill fill-japan"></div>
-                                </div>
-                                <div class="mock-item-foot">
-                                    <span><strong>2.460 €</strong> de 3.000 €</span>
-                                    <span>82%</span>
+                        <!-- VIEW 3: CREATE GOAL -->
+                        <div id="view-create" class="phone-screen-view">
+                            <div class="phone-header">
+                                <div class="phone-user">
+                                    <span class="phone-user-sub">Novo Objetivo</span>
+                                    <span class="phone-user-title">Criar Meta</span>
                                 </div>
                             </div>
 
-                            <!-- Goal 2 -->
-                            <div class="mock-item">
-                                <div class="mock-item-head">
-                                    <div class="mock-item-left">
-                                        <div class="mock-emoji">🛡️</div>
-                                        <div class="mock-item-name">Fundo de Emergência</div>
-                                    </div>
-                                    <span class="mock-proj-tag">Em ~3 meses</span>
+                            <div class="mock-create-form">
+                                <div class="mock-input-box">📝 Nome: Curso de Programação</div>
+                                <div class="mock-input-box">💶 Valor Objetivo: 1.200,00 €</div>
+                                <div style="font-size: 0.68rem; color: #94a3b8; font-weight: 600;">Escolhe um Ícone:</div>
+                                <div class="mock-icon-grid">
+                                    <div class="mock-icon-chip selected">💻</div>
+                                    <div class="mock-icon-chip">🏋️</div>
+                                    <div class="mock-icon-chip">🎓</div>
+                                    <div class="mock-icon-chip">🏠</div>
+                                    <div class="mock-icon-chip">🚀</div>
                                 </div>
-                                <div class="mock-bar-wrap">
-                                    <div class="mock-bar-fill fill-shield"></div>
-                                </div>
-                                <div class="mock-item-foot">
-                                    <span><strong>3.250 €</strong> de 5.000 €</span>
-                                    <span>65%</span>
-                                </div>
-                            </div>
-
-                            <!-- Goal 3 -->
-                            <div class="mock-item">
-                                <div class="mock-item-head">
-                                    <div class="mock-item-left">
-                                        <div class="mock-emoji">🚗</div>
-                                        <div class="mock-item-name">Carro Novo</div>
-                                    </div>
-                                    <span class="mock-proj-tag">Em ritmo constante</span>
-                                </div>
-                                <div class="mock-bar-wrap">
-                                    <div class="mock-bar-fill fill-car"></div>
-                                </div>
-                                <div class="mock-item-foot">
-                                    <span><strong>2.740 €</strong> de 7.500 €</span>
-                                    <span>38%</span>
+                                <div style="background: var(--primary); color: #fff; padding: 8px; border-radius: 8px; text-align: center; font-size: 0.75rem; font-weight: 700; margin-top: 4px;">
+                                    Salvar Meta ✨
                                 </div>
                             </div>
                         </div>
@@ -1187,99 +1558,156 @@
         </div>
     </header>
 
-    <!-- Key Features Section -->
-    <section id="features" class="section-wrap">
+    <!-- Trust Stats Banner -->
+    <section class="stats-section">
         <div class="container">
-            <div class="section-head">
-                <div class="pill-badge">Funcionalidades Principais</div>
-                <h2 class="section-title">Tudo o que precisas para poupar sem esforço</h2>
-                <p class="section-desc">Criada a pensar em quem quer atingir objetivos reais, sem burocracias, sem anúncios invasivos e com controlo total.</p>
-            </div>
-
-            <div class="cards-grid">
-                <!-- Feature 1 -->
-                <div class="card-feature">
-                    <div class="feature-icon-circle">🔒</div>
-                    <h3>100% Offline & Privado</h3>
-                    <p>A tua informação financeira é estritamente tua. Os dados são guardados localmente numa base de dados SQLite no teu telemóvel, funcionando sem ligação à internet e sem servidores externos.</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">0 €</div>
+                    <div class="stat-label">100% Gratuita</div>
+                    <div class="stat-sub">Sem mensalidades nem funcionalidades bloqueadas.</div>
                 </div>
-
-                <!-- Feature 2 -->
-                <div class="card-feature">
-                    <div class="feature-icon-circle">📈</div>
-                    <h3>Motor de Projeções Inteligente</h3>
-                    <p>Algoritmos matemáticos analisam a regularidade e os montantes dos teus depósitos para prever com precisão o mês e ano em que atingirás cada objetivo financeiro.</p>
+                <div class="stat-card">
+                    <div class="stat-number">0 Bytes</div>
+                    <div class="stat-label">Privacidade Local</div>
+                    <div class="stat-sub">Base de dados SQLite que nunca sai do teu telemóvel.</div>
                 </div>
-
-                <!-- Feature 3 -->
-                <div class="card-feature">
-                    <div class="feature-icon-circle">☁️</div>
-                    <h3>Backup Seguro Google Drive</h3>
-                    <p>Trocas de telemóvel sem preocupações. Faz cópias de segurança e restaura os teus objetivos na tua própria conta Google pessoal com um simples toque.</p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="card-feature">
-                    <div class="feature-icon-circle">🎨</div>
-                    <h3>Glassmorphism & Modos de Cor</h3>
-                    <p>Interface moderna com suporte nativo a Modo Claro e Escuro, efeitos de vidro translúcido, sombras refinadas e paletas de cores personalizáveis por meta.</p>
-                </div>
-
-                <!-- Feature 5 -->
-                <div class="card-feature">
-                    <div class="feature-icon-circle">🌍</div>
-                    <h3>Suporte Multi-Moeda</h3>
-                    <p>Formatação inteligente que reconhece posições de prefixo e sufixo de moedas mundiais (€, $, £, R$, CHF e muito mais) com formatação decimal precisa.</p>
-                </div>
-
-                <!-- Feature 6 -->
-                <div class="card-feature">
-                    <div class="feature-icon-circle">⚡</div>
-                    <h3>Gestos Rápidos & Ordenação</h3>
-                    <p>Arrasta para reordenar metas no ecrã, desliza para eliminar ou aceder a opções rápidas e filtra por nome, valor acumulado ou percentagem de progresso.</p>
+                <div class="stat-card">
+                    <div class="stat-number">&lt; 3 seg</div>
+                    <div class="stat-label">Registo Instantâneo</div>
+                    <div class="stat-sub">Adiciona depósitos e levantamentos em 2 toques.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Showcase / Why Choose Section -->
-    <section id="showcase" class="section-wrap" style="padding-top: 20px;">
+    <!-- Interactive Savings Calculator -->
+    <section id="calculator" class="calculator-section">
         <div class="container">
-            <div class="showcase-banner">
-                <div>
-                    <span class="pill-badge" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">✨ Simplicidade & Foco</span>
-                    <h2>Sem ligações bancárias invasivas. Sem mensalidades.</h2>
-                    <p>Muitas aplicações de finanças obrigam a partilhar credenciais bancárias sensíveis ou cobram subscrições mensais pesadas. A <strong>Savings App</strong> é centrada na tua motivação e liberdade.</p>
-                    <ul class="check-list">
-                        <li class="check-item">
-                            <span class="check-icon">✓</span>
-                            <span>Registo de depósitos e levantamentos em apenas 2 toques.</span>
-                        </li>
-                        <li class="check-item">
-                            <span class="check-icon">✓</span>
-                            <span>Histórico detalhado de transações por meta.</span>
-                        </li>
-                        <li class="check-item">
-                            <span class="check-icon">✓</span>
-                            <span>Ícones personalizados para viagens, carros, casas, gadgets e mais.</span>
-                        </li>
-                    </ul>
+            <div class="calc-wrapper">
+                <div class="calc-left">
+                    <div class="pill-badge" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">
+                        Simulador Interativo
+                    </div>
+                    <h2>Descobre quando vais bater a tua meta</h2>
+                    <p>Experimenta simular o teu objetivo financeiro. O motor de cálculo da Savings App calcula em tempo real o tempo necessário para lá chegar.</p>
+
+                    <div class="calc-control-group">
+                        <div class="calc-control">
+                            <div class="calc-label-row">
+                                <span>Qual é o teu objetivo?</span>
+                                <span id="display-target" class="calc-val-display">3.000 €</span>
+                            </div>
+                            <input type="range" id="slider-target" class="range-slider" min="500" max="25000" step="250" value="3000">
+                        </div>
+
+                        <div class="calc-control">
+                            <div class="calc-label-row">
+                                <span>Quanto consegues poupar por mês?</span>
+                                <span id="display-monthly" class="calc-val-display">150 € / mês</span>
+                            </div>
+                            <input type="range" id="slider-monthly" class="range-slider" min="20" max="1500" step="10" value="150">
+                        </div>
+                    </div>
                 </div>
-                <div class="showcase-widget">
-                    <div style="font-size: 0.78rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Resumo em Tempo Real</div>
-                    <div style="font-size: 1.8rem; font-weight: 800; color: #fff; font-family: var(--font-head);">
-                        82% Concluído
+
+                <div class="calc-result-box">
+                    <span class="calc-res-label">Tempo Estimado para Atingir a Meta</span>
+                    <div id="calc-months" class="calc-res-months">20 Meses</div>
+                    <div id="calc-date" class="calc-res-date">Previsão: Maio de 2028</div>
+                    
+                    <div class="calc-prog-bar-wrap">
+                        <div class="calc-prog-bar-fill"></div>
                     </div>
-                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 14px; font-size: 0.88rem; color: #6ee7b7; line-height: 1.5;">
-                        🎯 <strong>Ritmo Ideal:</strong> Mantendo este ritmo de depósitos, a tua meta será alcançada antes do prazo previsto!
-                    </div>
+
+                    <p class="calc-note">
+                        💡 Na aplicação podes criar múltiplos objetivos em simultâneo com ritmos diferentes!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works (3 Simple Steps) -->
+    <section id="how-it-works" class="steps-section">
+        <div class="container">
+            <div class="section-head">
+                <div class="pill-badge">Como Funciona</div>
+                <h2 class="section-title">Poupar dinheiro nunca foi tão simples</h2>
+                <p class="section-desc">Três passos diretos entre o teu objetivo e a realização.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num-badge">1</div>
+                    <h3>Define a tua Meta</h3>
+                    <p>Dá um nome ao teu sonho, escolhe o montante final, um ícone personalizado (avião, carro, casa, etc.) e a tua cor favorita.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num-badge">2</div>
+                    <h3>Regista em 2 Toques</h3>
+                    <p>Sempre que guardares dinheiro, adiciona um depósito em segundos. Podes ver o teu anel de progresso circular a encher em tempo real.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num-badge">3</div>
+                    <h3>Acompanha a Previsão</h3>
+                    <p>O algoritmo inteligente calcula e ajusta automaticamente a data prevista em que baterás a tua meta com base no teu ritmo real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-head">
+                <div class="pill-badge">Recursos da App</div>
+                <h2 class="section-title">Concebida para a tua liberdade financeira</h2>
+                <p class="section-desc">Tudo o que precisas para gerir as tuas economias sem fricções.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card-feature">
+                    <div class="feature-icon-circle">🔒</div>
+                    <h3>100% Offline & Privado</h3>
+                    <p>A tua informação é estritamente tua. Os dados vivem num banco de dados SQLite local no teu telemóvel, sem qualquer servidor externo.</p>
+                </div>
+
+                <div class="card-feature">
+                    <div class="feature-icon-circle">📈</div>
+                    <h3>Motor de Projeção Inteligente</h3>
+                    <p>Algoritmos matemáticos que calculam estimativas realistas de conclusão com base no teu histórico de depósitos.</p>
+                </div>
+
+                <div class="card-feature">
+                    <div class="feature-icon-circle">☁️</div>
+                    <h3>Backup Google Drive</h3>
+                    <p>Guarda e restaura com segurança os teus objetivos na tua própria conta Google pessoal com um toque.</p>
+                </div>
+
+                <div class="card-feature">
+                    <div class="feature-icon-circle">🎨</div>
+                    <h3>Glassmorphism & Modos de Cor</h3>
+                    <p>Interface moderna com suporte fluido a Modo Claro e Escuro, efeitos translúcidos e dezenas de ícones personalizáveis.</p>
+                </div>
+
+                <div class="card-feature">
+                    <div class="feature-icon-circle">🌍</div>
+                    <h3>Suporte Multi-Moeda</h3>
+                    <p>Formatação flexível e inteligente para qualquer moeda mundial (€, $, £, R$, CHF, etc.) com respeito às regras de pontuação.</p>
+                </div>
+
+                <div class="card-feature">
+                    <div class="feature-icon-circle">⚡</div>
+                    <h3>Gestos e Ordenação Ágil</h3>
+                    <p>Arrasta para ordenar prioridades, desliza para ações rápidas e organiza por nome, valor acumulado ou percentagem.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="section-wrap">
+    <section id="faq" class="faq-section">
         <div class="container">
             <div class="section-head">
                 <div class="pill-badge">Dúvidas Frequentes</div>
@@ -1290,15 +1718,15 @@
             <div class="faq-grid">
                 <div class="faq-box">
                     <h4>Os meus dados financeiros estão seguros?</h4>
-                    <p>Sim. A aplicação guarda todos os dados localmente no teu telemóvel através de SQLite. Não temos acesso ao teu saldo nem aos teus objetivos.</p>
+                    <p>Sim. A aplicação guarda todos os dados localmente no teu telemóvel através de SQLite. Nós não temos qualquer acesso ao teu saldo ou às tuas metas.</p>
                 </div>
                 <div class="faq-box">
                     <h4>É obrigatório criar conta?</h4>
-                    <p>Não! Podes usar a aplicação a 100% sem nunca criar conta. O login Google só é necessário se quiseres ativar o backup voluntário no Google Drive.</p>
+                    <p>Não! Podes usar a app a 100% sem registo. O login Google só é necessário caso queiras ativar o backup voluntário no Google Drive.</p>
                 </div>
                 <div class="faq-box">
-                    <h4>A app funciona sem internet?</h4>
-                    <p>Totalmente. Todas as funcionalidades de adicionar metas, registar transações e calcular projeções funcionam sem qualquer ligação à rede.</p>
+                    <h4>A aplicação funciona sem internet?</h4>
+                    <p>Totalmente. Todas as funcionalidades de adicionar metas, gerir transações e calcular projeções funcionam 100% offline.</p>
                 </div>
                 <div class="faq-box">
                     <h4>Onde posso ler a Política de Privacidade?</h4>
@@ -1308,21 +1736,54 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section-wrap" style="padding-bottom: 120px;">
+    <!-- CTA & QR Code Banner Section -->
+    <section class="cta-section">
         <div class="container">
             <div class="cta-card">
                 <h2>Começa a poupar para os teus sonhos hoje mesmo</h2>
-                <p>Descarrega a aplicação gratuitamente na Google Play Store e transforma os teus objetivos em realidade.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer" class="btn-play-hero">
-                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                        <path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/>
-                    </svg>
-                    <div class="btn-play-text">
-                        <span class="btn-play-sub">Disponível no</span>
-                        <span class="btn-play-main">Google Play</span>
+                <p>Disponível gratuitamente na Google Play Store. Descarrega agora e transforma os teus planos em conquistas.</p>
+                
+                <div class="cta-actions-wrap">
+                    <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer" class="btn-play-hero">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                            <path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/>
+                        </svg>
+                        <div class="btn-play-text">
+                            <span class="btn-play-sub">Disponível no</span>
+                            <span class="btn-play-main">Google Play</span>
+                        </div>
+                    </a>
+
+                    <!-- Clean QR Code for Desktop Visitors -->
+                    <div class="qr-card-box">
+                        <svg viewBox="0 0 100 100" fill="#000">
+                            <!-- QR Pattern Representation -->
+                            <rect x="10" y="10" width="25" height="25" fill="#000" rx="3" />
+                            <rect x="14" y="14" width="17" height="17" fill="#fff" rx="2" />
+                            <rect x="18" y="18" width="9" height="9" fill="#000" rx="1" />
+                            
+                            <rect x="65" y="10" width="25" height="25" fill="#000" rx="3" />
+                            <rect x="69" y="14" width="17" height="17" fill="#fff" rx="2" />
+                            <rect x="73" y="18" width="9" height="9" fill="#000" rx="1" />
+                            
+                            <rect x="10" y="65" width="25" height="25" fill="#000" rx="3" />
+                            <rect x="14" y="69" width="17" height="17" fill="#fff" rx="2" />
+                            <rect x="18" y="73" width="9" height="9" fill="#000" rx="1" />
+                            
+                            <rect x="42" y="15" width="8" height="8" fill="#000" />
+                            <rect x="48" y="28" width="6" height="12" fill="#000" />
+                            <rect x="15" y="44" width="12" height="6" fill="#000" />
+                            <rect x="34" y="40" width="14" height="14" fill="#000" />
+                            <rect x="60" y="42" width="10" height="8" fill="#000" />
+                            <rect x="78" y="45" width="12" height="10" fill="#000" />
+                            <rect x="42" y="62" width="12" height="8" fill="#000" />
+                            <rect x="62" y="62" width="8" height="14" fill="#000" />
+                            <rect x="76" y="68" width="14" height="16" fill="#000" />
+                            <rect x="44" y="78" width="10" height="10" fill="#000" />
+                        </svg>
+                        <span class="qr-card-text">Aponta a câmara</span>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1332,16 +1793,17 @@
         <div class="container footer-wrap">
             <div class="footer-brand">
                 <div class="footer-brand-title">
-                    <img src="assets/icon.png" alt="Savings App Logo" class="footer-logo" width="32" height="32">
+                    <img src="assets/icon.png" alt="Savings App Logo" class="footer-logo" width="30" height="30">
                     <span>Savings App</span>
                 </div>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Controlo financeiro inteligente, seguro e 100% privado.</p>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Controlo financeiro inteligente, seguro e 100% privado.</p>
             </div>
             <div class="footer-nav">
+                <a href="#calculator">Calculadora</a>
+                <a href="#how-it-works">Como Funciona</a>
                 <a href="#features">Funcionalidades</a>
-                <a href="#showcase">Destaques</a>
                 <a href="#faq">FAQ</a>
-                <a href="privacy.html">Política de Privacidade</a>
+                <a href="privacy.html">Privacidade</a>
                 <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer">Google Play Store</a>
             </div>
         </div>
@@ -1349,6 +1811,60 @@
             <p>&copy; 2026 Savings App. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // 1. Mockup Tab Switcher
+        function switchMockTab(tabId) {
+            document.querySelectorAll('.mockup-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.phone-screen-view').forEach(view => view.classList.remove('active'));
+            
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            
+            const targetView = document.getElementById('view-' + tabId);
+            if (targetView) {
+                targetView.classList.add('active');
+            }
+        }
+
+        // 2. Interactive Savings Calculator
+        const sliderTarget = document.getElementById('slider-target');
+        const sliderMonthly = document.getElementById('slider-monthly');
+        const displayTarget = document.getElementById('display-target');
+        const displayMonthly = document.getElementById('display-monthly');
+        const calcMonths = document.getElementById('calc-months');
+        const calcDate = document.getElementById('calc-date');
+
+        const monthsNames = [
+            "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+        ];
+
+        function updateCalculator() {
+            const target = parseFloat(sliderTarget.value);
+            const monthly = parseFloat(sliderMonthly.value);
+
+            displayTarget.textContent = target.toLocaleString('pt-PT') + ' €';
+            displayMonthly.textContent = monthly.toLocaleString('pt-PT') + ' € / mês';
+
+            const monthsNeeded = Math.ceil(target / monthly);
+            calcMonths.textContent = monthsNeeded + (monthsNeeded === 1 ? ' Mês' : ' Meses');
+
+            // Calculate projected date
+            const now = new Date();
+            now.setMonth(now.getMonth() + monthsNeeded);
+            const targetMonth = monthsNames[now.getMonth()];
+            const targetYear = now.getFullYear();
+
+            calcDate.textContent = 'Previsão: ' + targetMonth + ' de ' + targetYear;
+        }
+
+        sliderTarget.addEventListener('input', updateCalculator);
+        sliderMonthly.addEventListener('input', updateCalculator);
+        updateCalculator();
+    </script>
 </body>
 
 </html>
