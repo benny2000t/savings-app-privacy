@@ -1,86 +1,370 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | Savings App</title>
+    <title>Savings App - Poupa com método. Conquista os teus objetivos.</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="A aplicação de poupança offline-first, segura e inteligente. Define metas, prevê datas de conclusão com IA e controla o teu progresso com um design elegante.">
+    <meta name="keywords" content="poupança, savings app, finanças pessoais, metas financeiras, controlo financeiro, offline-first, google play">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- App Favicon -->
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <meta name="description"
-        content="Privacy Policy for Savings App - Learn how we handle your data, local storage, and cloud synchronization.">
 </head>
 
 <body>
-    <header>
-        <h1>Savings App</h1>
-        <p>Privacy Policy</p>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/icon.png" alt="Savings App Logo" class="nav-logo">
+                <span>Savings App</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Funcionalidades</a>
+                <a href="#showcase" class="nav-link">Destaques</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="privacy.html" class="nav-link">Privacidade</a>
+                <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/></svg>
+                    Google Play
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span>Versão 1.1.2 já disponível no Android</span>
+                </div>
+                <h1 class="hero-title">
+                    Poupa com método. <br>
+                    <span class="text-gradient">Conquista metas.</span>
+                </h1>
+                <p class="hero-description">
+                    Uma aplicação de finanças pessoais elegante, offline-first e inteligente. Acompanha o teu progresso com previsões matemáticas e mantém o controlo total do teu dinheiro com privacidade absoluta.
+                </p>
+                <div class="hero-actions">
+                    <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer" class="btn-playstore">
+                        <svg class="playstore-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/>
+                        </svg>
+                        <div class="playstore-text">
+                            <span class="playstore-sub">Disponível no</span>
+                            <span class="playstore-title">Google Play</span>
+                        </div>
+                    </a>
+                    <a href="#features" class="btn btn-secondary">Explorar Recursos ↓</a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>100% Offline (SQLite)</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Zero Venda de Dados</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span>Backup Google Drive</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive CSS Phone Mockup -->
+            <div class="mockup-wrapper">
+                <div class="mockup-glow"></div>
+                <div class="phone-mockup">
+                    <div class="phone-notch">
+                        <div class="notch-speaker"></div>
+                        <div class="notch-camera"></div>
+                    </div>
+                    <div class="phone-screen">
+                        <!-- App Top Header -->
+                        <div class="app-header-mock">
+                            <div class="app-user-greeting">
+                                <span class="greeting-sub">Bem-vindo de volta 👋</span>
+                                <span class="greeting-main">Minhas Metas</span>
+                            </div>
+                            <div class="app-avatar">BT</div>
+                        </div>
+
+                        <!-- App Total Balance Card -->
+                        <div class="app-total-card">
+                            <div class="app-total-info">
+                                <span class="app-total-label">Total Poupado</span>
+                                <span class="app-total-amount">8.450,00 €</span>
+                                <span class="app-total-rate">↑ +350 € este mês</span>
+                            </div>
+                            <div class="mini-progress-ring">
+                                <svg class="mini-ring-svg" width="48" height="48" viewBox="0 0 36 36">
+                                    <path class="ring-bg" stroke-width="3.5" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="ring-fill" stroke-width="3.5" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <span class="ring-percent">72%</span>
+                            </div>
+                        </div>
+
+                        <!-- App Goals List Mock -->
+                        <div class="mock-goals-list">
+                            <!-- Goal 1 -->
+                            <div class="mock-goal-item">
+                                <div class="mock-goal-header">
+                                    <div class="mock-goal-title-group">
+                                        <div class="mock-goal-emoji">✈️</div>
+                                        <div>
+                                            <div class="mock-goal-name">Viagem ao Japão</div>
+                                        </div>
+                                    </div>
+                                    <span class="mock-goal-projection">Em ~1 mês</span>
+                                </div>
+                                <div class="mock-progress-bar-wrap">
+                                    <div class="mock-progress-bar bar-japan"></div>
+                                </div>
+                                <div class="mock-goal-footer">
+                                    <span class="mock-saved">2.460 € de 3.000 €</span>
+                                    <span>82%</span>
+                                </div>
+                            </div>
+
+                            <!-- Goal 2 -->
+                            <div class="mock-goal-item">
+                                <div class="mock-goal-header">
+                                    <div class="mock-goal-title-group">
+                                        <div class="mock-goal-emoji">🛡️</div>
+                                        <div>
+                                            <div class="mock-goal-name">Fundo de Emergência</div>
+                                        </div>
+                                    </div>
+                                    <span class="mock-goal-projection">Em ~3 meses</span>
+                                </div>
+                                <div class="mock-progress-bar-wrap">
+                                    <div class="mock-progress-bar bar-emergency"></div>
+                                </div>
+                                <div class="mock-goal-footer">
+                                    <span class="mock-saved">3.250 € de 5.000 €</span>
+                                    <span>65%</span>
+                                </div>
+                            </div>
+
+                            <!-- Goal 3 -->
+                            <div class="mock-goal-item">
+                                <div class="mock-goal-header">
+                                    <div class="mock-goal-title-group">
+                                        <div class="mock-goal-emoji">🚗</div>
+                                        <div>
+                                            <div class="mock-goal-name">Carro Novo</div>
+                                        </div>
+                                    </div>
+                                    <span class="mock-goal-projection">Em ritmo regular</span>
+                                </div>
+                                <div class="mock-progress-bar-wrap">
+                                    <div class="mock-progress-bar bar-car"></div>
+                                </div>
+                                <div class="mock-goal-footer">
+                                    <span class="mock-saved">2.740 € de 7.500 €</span>
+                                    <span>38%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <div class="content-card">
-            <p><strong>Last updated: March 02, 2026</strong></p>
+    <!-- Key Features Grid -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Funcionalidades Principais</span>
+                <h2 class="section-title">Tudo o que precisas para poupar sem esforço</h2>
+                <p class="section-subtitle">
+                    Criada a pensar em quem quer atingir objetivos reais, sem burocracias, sem anúncios invasivos e com controlo total.
+                </p>
+            </div>
 
-            <p>This Privacy Policy describes how Savings App ("we", "us", or "our") collects, uses, and shares your
-                personal information.</p>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-box">🔒</div>
+                    <h3>100% Offline & Privado</h3>
+                    <p>
+                        A tua informação financeira é estritamente tua. Os dados são guardados localmente numa base de dados SQLite no teu telemóvel, funcionando sem ligação à internet e sem servidores externos.
+                    </p>
+                </div>
 
-            <h2>1. Information We Collect</h2>
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-box">📈</div>
+                    <h3>Motor de Projeções Inteligente</h3>
+                    <p>
+                        Algoritmos matemáticos analisam a regularidade e os montantes dos teus depósitos para prever com precisão o mês e ano em que atingirás cada objetivo financeiro.
+                    </p>
+                </div>
 
-            <h3>A. Local Data</h3>
-            <p>Savings App is designed to store your financial goals and transactions locally on your device. This data
-                is not automatically transmitted to our servers.</p>
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-box">☁️</div>
+                    <h3>Backup Seguro Google Drive</h3>
+                    <p>
+                        Trocas de telemóvel sem preocupações. Faz cópias de segurança e restaura os teus objetivos na tua própria conta Google pessoal com um simples clique.
+                    </p>
+                </div>
 
-            <h3>B. Cloud Sync (Optional)</h3>
-            <p>If you choose to enable Google Cloud Sync, your application data will be stored in your own Google Drive
-                account (within a private "App Data" folder). We do not have access to your Google Drive outside of this
-                specific folder.</p>
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon-box">🎨</div>
+                    <h3>Glassmorphism & Modos de Cor</h3>
+                    <p>
+                        Interface moderna com suporte nativo a Modo Claro e Escuro, efeitos de vidro translúcido, sombras refinadas e paletas de cores personalizáveis por meta.
+                    </p>
+                </div>
 
-            <h3>C. Advertising Data</h3>
-            <p>We use Google AdMob to serve advertisements. Google may use advertising identifiers (like Android
-                Advertising ID or iOS IDFA) and other information about your device and app usage to serve personalized
-                ads.</p>
-            <ul>
-                <li><strong>Privacy Policy for Google Advertising:</strong> <a
-                        href="https://policies.google.com/technologies/ads" target="_blank"
-                        rel="noopener noreferrer">https://policies.google.com/technologies/ads</a></li>
-            </ul>
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon-box">🌍</div>
+                    <h3>Suporte Multi-Moeda</h3>
+                    <p>
+                        Formatação inteligente que reconhece posições de prefixo e sufixo de moedas mundiais (€, $, £, R$, CHF e muito mais) com formatação decimal precisa.
+                    </p>
+                </div>
 
-            <h2>2. How We Use Information</h2>
-            <p>We use the collected information to:</p>
-            <ul>
-                <li>Provide and maintain the app's functionality.</li>
-                <li>Enable cloud backups and synchronization.</li>
-                <li>Serve relevant advertisements to support the app's development.</li>
-            </ul>
-
-            <h2>3. Data Protection</h2>
-            <p>Your local data is protected by your device's security. Cloud data is protected by Google's security
-                infrastructure.</p>
-
-            <h2 id="data-deletion">4. Data Deletion</h2>
-            <p>You can remove all data associated with your use of this app at any time:</p>
-            <ul>
-                <li><strong>Local data:</strong> Uninstalling the app from your device will permanently delete all
-                    locally stored goals and transactions.</li>
-                <li><strong>Cloud data (Google Drive):</strong> If you enabled Cloud Sync, you can remove the app's data
-                    from your Google Drive by going to <a href="https://myaccount.google.com/permissions"
-                        target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a>, finding "Savings
-                    App", and clicking <strong>Remove Access</strong>. This will permanently delete all synced data.
-                </li>
-                <li><strong>Sign out:</strong> You can sign out of your Google account directly in the app via the
-                    Profile screen, which disconnects the app from your Google Drive.</li>
-            </ul>
-
-            <h2>5. Contact Us</h2>
-            <p>If you have any questions, please contact us through the contact information provided in the Google Play
-                Store.</p>
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon-box">⚡</div>
+                    <h3>Gestos Rápidos & Ordenação</h3>
+                    <p>
+                        Arrasta para reordenar metas no ecrã, desliza para eliminar ou aceder a opções rápidas e filtra por nome, valor acumulado ou percentagem de progresso.
+                    </p>
+                </div>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Savings App. All rights reserved.</p>
+    <!-- Showcase / Deep Dive -->
+    <section id="showcase" class="showcase">
+        <div class="container">
+            <div class="showcase-card">
+                <div class="showcase-content">
+                    <span class="pill-tag">✨ Simplicidade & Foco</span>
+                    <h2>Sem ligações bancárias invasivas. Sem mensalidades.</h2>
+                    <p>
+                        Muitas aplicações de finanças obrigam a partilhar dados bancários sensíveis ou cobram subscrições mensais pesadas. A <strong>Savings App</strong> foi desenhada para ser simples, rápida e centrada apenas no que importa: a tua motivação para poupar.
+                    </p>
+                    <ul class="showcase-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Registo de depósitos e levantamentos em apenas 2 toques.</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Histórico completo de transações detalhado por meta.</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Ícones personalizados para viagens, carros, casas, gadgets e mais.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="showcase-visual">
+                    <div style="font-size: 0.85rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Resumo em Tempo Real</div>
+                    <div style="font-size: 1.6rem; font-weight: 800; color: #fff; font-family: var(--font-heading);">
+                        82% Concluído
+                    </div>
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 12px; font-size: 0.88rem; color: #6ee7b7;">
+                        🎯 <strong>Ritmo Ideal:</strong> Mantendo este ritmo de depósitos, a tua meta será alcançada antes do prazo previsto!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Dúvidas Frequentes</span>
+                <h2 class="section-title">Perguntas e Respostas</h2>
+                <p class="section-subtitle">Tudo o que precisas de saber sobre a aplicação.</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Os meus dados financeiros estão seguros?</h4>
+                    <p>Sim. A aplicação guarda todos os dados localmente no teu telemóvel através de SQLite. Não temos acesso ao teu saldo nem aos teus objetivos.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>É obrigatório criar conta?</h4>
+                    <p>Não! Podes usar a aplicação a 100% sem nunca criar conta. O login Google só é necessário se quiseres ativar o backup voluntário no Google Drive.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>A app funciona sem internet?</h4>
+                    <p>Totalmente. Todas as funcionalidades de adicionar metas, registar transações e calcular projeções funcionam sem qualquer ligação à rede.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Onde posso ler a Política de Privacidade?</h4>
+                    <p>Podes consultar todos os detalhes legais, termos de proteção de dados e remoção de conta na nossa <a href="privacy.html" style="color:#818cf8; text-decoration: underline;">página de Privacidade</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Começa a poupar para os teus sonhos hoje mesmo</h2>
+                <p>Descarrega a aplicação gratuitamente na Google Play Store e transforma os teus objetivos em realidade.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer" class="btn-playstore">
+                    <svg class="playstore-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/>
+                    </svg>
+                    <div class="playstore-text">
+                        <span class="playstore-sub">Disponível no</span>
+                        <span class="playstore-title">Google Play</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="brand-line">
+                    <img src="assets/icon.png" alt="Savings App Logo" class="footer-logo">
+                    <span class="footer-title">Savings App</span>
+                </div>
+                <p class="footer-tagline">Controlo financeiro inteligente, seguro e 100% privado.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#features">Funcionalidades</a>
+                <a href="#showcase">Destaques</a>
+                <a href="#faq">FAQ</a>
+                <a href="privacy.html">Política de Privacidade</a>
+                <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer">Google Play Store</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Savings App. Todos os direitos reservados.</p>
+        </div>
     </footer>
 </body>
 
