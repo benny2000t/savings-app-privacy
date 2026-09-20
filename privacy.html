@@ -5,141 +5,287 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidade | Savings App</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/icon.png">
-    <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Política de Privacidade da Savings App - Conheça como tratamos os seus dados, armazenamento local e sincronização na cloud.">
+
+    <style>
+        :root {
+            --bg-dark: #07090e;
+            --bg-card: rgba(18, 24, 38, 0.75);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --primary: #6366f1;
+            --emerald: #10b981;
+            --grad-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --radius-md: 14px;
+            --radius-xl: 28px;
+            --font-head: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            line-height: 1.65;
+            position: relative;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 500px;
+            background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(7, 9, 14, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            object-fit: cover;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+        }
+
+        /* Main Legal Content */
+        .legal-main {
+            padding: 60px 0 100px;
+        }
+
+        .legal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        .pill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            border-radius: 9999px;
+            color: #c7d2fe;
+            font-size: 0.84rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .legal-title {
+            font-family: var(--font-head);
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .legal-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .legal-body p {
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .legal-body h2 {
+            font-family: var(--font-head);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 32px 0 14px;
+            border-left: 3px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        .legal-body h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin: 18px 0 8px;
+            padding-left: 15px;
+        }
+
+        .legal-body ul {
+            margin: 10px 0 20px 30px;
+            color: #cbd5e1;
+        }
+
+        .legal-body li {
+            margin-bottom: 8px;
+        }
+
+        .legal-body a {
+            color: #818cf8;
+            text-decoration: underline;
+        }
+
+        .legal-body a:hover {
+            color: #a5b4fc;
+        }
+
+        /* Footer */
+        .footer {
+            background: #05070a;
+            border-top: 1px solid var(--border-subtle);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .legal-card {
+                padding: 28px 20px;
+            }
+            .legal-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 
-<body class="legal-page">
-    <!-- Navigation Bar -->
+<body>
+    <div class="ambient-glow"></div>
+
     <nav class="navbar">
-        <div class="nav-container">
+        <div class="nav-wrap">
             <a href="index.html" class="nav-brand">
-                <img src="assets/icon.png" alt="Savings App Logo" class="nav-logo">
+                <img src="assets/icon.png" alt="Savings App Logo" class="nav-logo" width="36" height="36">
                 <span>Savings App</span>
             </a>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link">← Voltar ao Início</a>
-                <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/></svg>
-                    Google Play
-                </a>
-            </div>
+            <a href="index.html" class="nav-link">← Voltar ao Início</a>
         </div>
     </nav>
 
     <main class="legal-main">
-        <div class="legal-container">
+        <div class="container">
             <div class="legal-card">
-                <div class="legal-header">
-                    <span class="badge">Legal & Segurança</span>
-                    <h1>Política de Privacidade</h1>
-                    <p class="legal-updated">Última atualização: 2 de Março de 2026</p>
-                </div>
+                <div class="pill-badge">Legal & Segurança</div>
+                <h1 class="legal-title">Política de Privacidade</h1>
+                <div class="legal-date">Última atualização: 2 de Março de 2026</div>
 
                 <div class="legal-body">
-                    <p class="lead-text">
-                        Esta Política de Privacidade descreve a forma como a <strong>Savings App</strong> ("nós" ou "a aplicação") recolhe, utiliza e protege as suas informações pessoais ao utilizar a aplicação móvel.
-                    </p>
+                    <p>Esta Política de Privacidade descreve como a <strong>Savings App</strong> ("nós" ou "a aplicação") recolhe, utiliza e protege as suas informações pessoais ao utilizar a nossa aplicação móvel.</p>
 
-                    <section class="legal-section">
-                        <h2>1. Informações que Recolhemos</h2>
-                        
-                        <div class="legal-subsection">
-                            <h3>A. Dados Locais (Offline-First)</h3>
-                            <p>
-                                A <strong>Savings App</strong> foi desenhada segundo o princípio da privacidade por padrão (*Privacy by Design*). Todos os seus objetivos financeiros, metas de poupança, categorias, histórico e transações são gravados **exclusivamente de forma local** no seu dispositivo através de uma base de dados SQLite protegida. Estes dados <strong>nunca são transmitidos</strong> para servidores proprietários nossos.
-                            </p>
-                        </div>
+                    <h2>1. Informações que Recolhemos</h2>
+                    
+                    <h3>A. Dados Locais (Offline-First)</h3>
+                    <p>A <strong>Savings App</strong> armazena os seus objetivos financeiros, metas e transações <strong>exclusivamente de forma local</strong> no seu dispositivo através de uma base de dados SQLite protegida. Estes dados nunca são transmitidos para servidores proprietários nossos.</p>
 
-                        <div class="legal-subsection">
-                            <h3>B. Sincronização na Cloud (Opcional - Google Drive)</h3>
-                            <p>
-                                Se optar voluntariamente por ativar a funcionalidade de Cópia de Segurança na Cloud através do início de sessão com a sua conta Google:
-                            </p>
-                            <ul>
-                                <li>Os seus dados de poupança são guardados de forma encriptada na pasta privada da sua própria conta <strong>Google Drive</strong> (pasta dedicada da aplicação - <em>App Data folder</em>).</li>
-                                <li>Nós não temos acesso, nem podemos visualizar ou gerir qualquer outro ficheiro ou pasta do seu Google Drive pessoal.</li>
-                            </ul>
-                        </div>
+                    <h3>B. Sincronização na Cloud (Opcional - Google Drive)</h3>
+                    <p>Se optar por ativar a Cópia de Segurança na Cloud através do início de sessão com a sua conta Google, os dados são guardados de forma privada na sua própria conta Google Drive (pasta restrita <em>App Data</em>). Nós não temos acesso ao restante conteúdo da sua conta Google Drive.</p>
 
-                        <div class="legal-subsection">
-                            <h3>C. Dados de Publicidade</h3>
-                            <p>
-                                Utilizamos o serviço <strong>Google AdMob</strong> para exibir anúncios discretos que apoiam o desenvolvimento contínuo da aplicação. A Google pode utilizar identificadores de publicidade do dispositivo (como o Google Advertising ID no Android) e informações gerais para fornecer anúncios relevantes.
-                            </p>
-                            <p>
-                                Para mais informações sobre como a Google trata estes dados, consulte a <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Política de Privacidade de Anúncios da Google</a>.
-                            </p>
-                        </div>
-                    </section>
+                    <h3>C. Dados de Publicidade</h3>
+                    <p>Utilizamos o <strong>Google AdMob</strong> para exibir anúncios que suportam o desenvolvimento da aplicação. A Google pode utilizar identificadores de publicidade do dispositivo para fornecer anúncios relevantes.</p>
+                    <p>Consulte a <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Política de Privacidade de Anúncios da Google</a> para mais informações.</p>
 
-                    <section class="legal-section">
-                        <h2>2. Como Utilizamos as Informações</h2>
-                        <p>As informações estritamente necessárias são utilizadas para:</p>
-                        <ul>
-                            <li>Garantir o pleno funcionamento, cálculo de projeções e gestão de metas da aplicação.</li>
-                            <li>Permitir o backup e restauro voluntário dos seus dados entre dispositivos via Google Drive.</li>
-                            <li>Apresentar publicidade de suporte via Google AdMob.</li>
-                        </ul>
-                    </section>
+                    <h2>2. Como Utilizamos as Informações</h2>
+                    <p>As informações são estritamente utilizadas para:</p>
+                    <ul>
+                        <li>Garantir o pleno funcionamento e cálculo de metas da aplicação.</li>
+                        <li>Permitir o backup e restauro voluntário via Google Drive.</li>
+                        <li>Exibir publicidade discreta de suporte via AdMob.</li>
+                    </ul>
 
-                    <section class="legal-section">
-                        <h2>3. Proteção e Segurança dos Dados</h2>
-                        <p>
-                            Os seus dados locais estão protegidos pela camada de segurança e encriptação nativa do sistema operativo do seu telemóvel (Android / iOS). Os dados de backup na cloud beneficiam dos mais elevados padrões de segurança e infraestrutura dos servidores da Google.
-                        </p>
-                    </section>
+                    <h2>3. Proteção e Segurança</h2>
+                    <p>Os seus dados locais estão protegidos pela segurança nativa do seu dispositivo. Os dados de backup na cloud beneficiam dos mais avançados protocolos de segurança da infraestrutura Google.</p>
 
-                    <section class="legal-section" id="data-deletion">
-                        <h2>4. Eliminação de Dados (Direito ao Esquecimento)</h2>
-                        <p>Tem total controlo sobre os seus dados e pode eliminá-los a qualquer momento:</p>
-                        <ul>
-                            <li>
-                                <strong>Dados Locais:</strong> Ao desinstalar a aplicação ou limpar os dados nas definições do telemóvel, todos os registos e metas locais são apagados de forma imediata e irreversível.
-                            </li>
-                            <li>
-                                <strong>Dados na Cloud (Google Drive):</strong> Caso tenha ativado a sincronização, pode revogar o acesso à aplicação acedendo a <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a>, selecionando "Savings App" e clicando em <strong>Remover Acesso</strong>.
-                            </li>
-                            <li>
-                                <strong>Terminar Sessão:</strong> Pode terminar a sessão da sua conta Google a qualquer momento diretamente no ecrã de Perfil dentro da aplicação.
-                            </li>
-                        </ul>
-                    </section>
+                    <h2 id="data-deletion">4. Eliminação de Dados</h2>
+                    <p>Pode remover todos os dados associados à utilização da app:</p>
+                    <ul>
+                        <li><strong>Dados Locais:</strong> Desinstalar a app do dispositivo apaga permanentemente todas as metas e transações guardadas localmente.</li>
+                        <li><strong>Dados na Cloud (Google Drive):</strong> Pode revogar o acesso em <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a> selecionando "Savings App" e clicando em <strong>Remover Acesso</strong>.</li>
+                        <li><strong>Terminar Sessão:</strong> Pode desligar a sua conta Google diretamente no ecrã de Perfil dentro da app.</li>
+                    </ul>
 
-                    <section class="legal-section">
-                        <h2>5. Contacto e Suporte</h2>
-                        <p>
-                            Se tiver alguma questão ou dúvida relativamente a esta Política de Privacidade ou ao funcionamento da aplicação, pode contactar-nos através do canal de suporte indicado na página oficial da <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer">Google Play Store</a> ou através da funcionalidade "Reportar um Problema" dentro da própria app.
-                        </p>
-                    </section>
+                    <h2>5. Contacto</h2>
+                    <p>Para qualquer questão sobre privacidade, contacte-nos através do canal de suporte da <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer">Google Play Store</a>.</p>
                 </div>
             </div>
         </div>
     </main>
 
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="brand-line">
-                    <img src="assets/icon.png" alt="Savings App Logo" class="footer-logo">
-                    <span class="footer-title">Savings App</span>
-                </div>
-                <p class="footer-tagline">Controlo financeiro inteligente, seguro e 100% privado.</p>
-            </div>
-            <div class="footer-links">
-                <a href="index.html">Início</a>
-                <a href="index.html#features">Funcionalidades</a>
-                <a href="privacy.html">Privacidade</a>
-                <a href="https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp" target="_blank" rel="noopener noreferrer">Google Play Store</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Savings App. Todos os direitos reservados.</p>
-        </div>
+        <p>&copy; 2026 Savings App. Todos os direitos reservados.</p>
     </footer>
 </body>
 
