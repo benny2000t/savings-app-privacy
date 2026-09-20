@@ -4,7 +4,7 @@ Official Landing Page and Privacy Policy for **Savings App** (Android / Google P
 
 🌐 **Live Website:** [https://benny2000t.github.io/savings-app-privacy/](https://benny2000t.github.io/savings-app-privacy/)  
 🔒 **Privacy Policy:** [https://benny2000t.github.io/savings-app-privacy/privacy.html](https://benny2000t.github.io/savings-app-privacy/privacy.html)  
-📱 **Google Play Store:** [Savings App on Google Play](https://play.google.com/store/apps/details?id=com.bernardo.tavares.savingsapp)
+📱 **Google Play Store:** [Savings App on Google Play](https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE)
 
 ---
 

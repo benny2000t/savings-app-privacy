@@ -1124,21 +1124,31 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            gap: 6px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
+        .qr-card-box:hover {
+            transform: scale(1.04);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
+        }
+
+        .qr-card-box img,
         .qr-card-box svg {
             width: 88px;
             height: 88px;
             display: block;
+            border-radius: 4px;
         }
 
         .qr-card-text {
             font-size: 0.65rem;
             color: #0b0f19;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
 
         /* ================= FAQ SECTION ================= */
@@ -1354,7 +1364,7 @@
                 <a href="#features" class="nav-link">Funcionalidades</a>
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="privacy.html" class="nav-link">Privacidade</a>
-                <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp" target="_blank" rel="noopener noreferrer" class="btn-nav-play">
+                <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer" class="btn-nav-play">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/></svg>
                     Google Play
                 </a>
@@ -1378,7 +1388,7 @@
                     Uma aplicação de finanças pessoais elegante, offline-first e inteligente. Acompanha o teu progresso com previsões matemáticas e mantém o controlo total do teu dinheiro com privacidade absoluta.
                 </p>
                 <div class="hero-cta-group">
-                    <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp" target="_blank" rel="noopener noreferrer" class="btn-play-hero">
+                    <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer" class="btn-play-hero">
                         <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
                             <path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/>
                         </svg>
@@ -1744,7 +1754,7 @@
                 <p>Disponível gratuitamente na Google Play Store. Descarrega agora e transforma os teus planos em conquistas.</p>
                 
                 <div class="cta-actions-wrap">
-                    <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp" target="_blank" rel="noopener noreferrer" class="btn-play-hero">
+                    <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer" class="btn-play-hero">
                         <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
                             <path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/>
                         </svg>
@@ -1754,35 +1764,11 @@
                         </div>
                     </a>
 
-                    <!-- Clean QR Code for Desktop Visitors -->
-                    <div class="qr-card-box">
-                        <svg viewBox="0 0 100 100" fill="#000">
-                            <!-- QR Pattern Representation -->
-                            <rect x="10" y="10" width="25" height="25" fill="#000" rx="3" />
-                            <rect x="14" y="14" width="17" height="17" fill="#fff" rx="2" />
-                            <rect x="18" y="18" width="9" height="9" fill="#000" rx="1" />
-                            
-                            <rect x="65" y="10" width="25" height="25" fill="#000" rx="3" />
-                            <rect x="69" y="14" width="17" height="17" fill="#fff" rx="2" />
-                            <rect x="73" y="18" width="9" height="9" fill="#000" rx="1" />
-                            
-                            <rect x="10" y="65" width="25" height="25" fill="#000" rx="3" />
-                            <rect x="14" y="69" width="17" height="17" fill="#fff" rx="2" />
-                            <rect x="18" y="73" width="9" height="9" fill="#000" rx="1" />
-                            
-                            <rect x="42" y="15" width="8" height="8" fill="#000" />
-                            <rect x="48" y="28" width="6" height="12" fill="#000" />
-                            <rect x="15" y="44" width="12" height="6" fill="#000" />
-                            <rect x="34" y="40" width="14" height="14" fill="#000" />
-                            <rect x="60" y="42" width="10" height="8" fill="#000" />
-                            <rect x="78" y="45" width="12" height="10" fill="#000" />
-                            <rect x="42" y="62" width="12" height="8" fill="#000" />
-                            <rect x="62" y="62" width="8" height="14" fill="#000" />
-                            <rect x="76" y="68" width="14" height="16" fill="#000" />
-                            <rect x="44" y="78" width="10" height="10" fill="#000" />
-                        </svg>
-                        <span class="qr-card-text">Aponta a câmara</span>
-                    </div>
+                    <!-- Real Scannable QR Code for Direct Play Store Download -->
+                    <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer" class="qr-card-box" title="Aponta a câmara do telemóvel para abrir na Play Store">
+                        <img src="assets/qrcode.svg" alt="Google Play Store QR Code" width="88" height="88">
+                        <span class="qr-card-text">Lê o QR Code</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1804,7 +1790,7 @@
                 <a href="#features">Funcionalidades</a>
                 <a href="#faq">FAQ</a>
                 <a href="privacy.html">Privacidade</a>
-                <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp" target="_blank" rel="noopener noreferrer">Google Play Store</a>
+                <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer">Google Play Store</a>
             </div>
         </div>
         <div class="container footer-copy">
