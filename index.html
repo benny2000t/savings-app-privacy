@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Savings App — Poupa com método. Conquista os teus objetivos.</title>
+    <title id="doc-title">Savings App — Save with purpose. Reach your goals.</title>
     
     <!-- Meta & SEO -->
-    <meta name="description" content="A aplicação de poupança offline-first, segura e inteligente para Android. Define metas, simula poupanças com projeções inteligentes e acompanha o teu progresso.">
-    <meta name="keywords" content="poupança, savings app, finanças pessoais, metas financeiras, offline-first, calculadora de poupança, google play">
-    <meta property="og:title" content="Savings App — Poupa com método">
-    <meta property="og:description" content="A aplicação de finanças pessoais elegante, offline-first e inteligente.">
+    <meta id="meta-desc" name="description" content="The offline-first, secure, and smart savings tracker app for Android. Set goals, forecast progress with smart projections, and control your wealth.">
+    <meta name="keywords" content="savings, savings app, personal finance, financial goals, offline-first, savings calculator, compound interest, google play">
+    <meta id="og-title" property="og:title" content="Savings App — Save with purpose">
+    <meta id="og-desc" property="og:description" content="Sleek, privacy-first, and intelligent personal finance tracker.">
     <meta property="og:image" content="assets/icon.png">
     
     <!-- Google Fonts -->
@@ -98,66 +98,60 @@
 
         .ambient-glow-2 {
             position: absolute;
-            top: 900px;
-            right: 0;
-            width: min(500px, 80vw);
+            top: 700px;
+            right: -100px;
+            width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
-            filter: blur(70px);
+            background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+            filter: blur(80px);
             pointer-events: none;
             z-index: 0;
         }
 
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
 
-        /* ================= NAVBAR ================= */
+        /* ================= NAVIGATION ================= */
         .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
             background: rgba(7, 9, 14, 0.85);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-subtle);
-            padding: 12px 0;
-            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 14px 0;
         }
 
         .nav-wrap {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
+            gap: 16px;
         }
 
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
             color: #ffffff;
             font-family: var(--font-head);
             font-weight: 800;
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             letter-spacing: -0.02em;
-            flex-shrink: 0;
         }
 
         .nav-logo {
-            width: 34px;
-            height: 34px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-            display: block;
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
             object-fit: cover;
-            flex-shrink: 0;
         }
 
         .nav-menu {
@@ -169,7 +163,7 @@
         .nav-link {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 500;
             transition: color 0.2s ease;
         }
@@ -178,96 +172,58 @@
             color: #ffffff;
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-full);
+            padding: 2px 3px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-head);
+            font-size: 0.76rem;
+            font-weight: 700;
+            padding: 4px 9px;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            color: #ffffff;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.45);
+        }
+
         .btn-nav-play {
-            background: rgba(99, 102, 241, 0.15);
-            color: #c7d2fe;
-            border: 1px solid rgba(99, 102, 241, 0.35);
-            padding: 7px 14px;
-            font-size: 0.82rem;
-            font-weight: 600;
+            background: #ffffff;
+            color: #0b0f19;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.88rem;
+            padding: 8px 18px;
             border-radius: var(--radius-full);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            transition: all 0.2s;
-            white-space: nowrap;
+            gap: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .btn-nav-play:hover {
-            background: rgba(99, 102, 241, 0.25);
-            color: #ffffff;
-        }
-
-        /* ================= BUTTONS ================= */
-        .btn-play-hero {
-            background: #000000;
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            padding: 10px 22px;
-            border-radius: var(--radius-md);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(99, 102, 241, 0.4);
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            transition: all 0.25s ease;
-            max-width: 100%;
-        }
-
-        .btn-play-hero:hover {
-            background: #111116;
-            border-color: rgba(255, 255, 255, 0.45);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.9), 0 0 25px -5px rgba(99, 102, 241, 0.6);
-        }
-
-        .btn-play-hero svg {
-            width: 26px;
-            height: 26px;
-            flex-shrink: 0;
-        }
-
-        .btn-play-text {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            line-height: 1.15;
-        }
-
-        .btn-play-sub {
-            font-size: 0.65rem;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 500;
-        }
-
-        .btn-play-main {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #ffffff;
-            border: 1px solid var(--border-subtle);
-            padding: 12px 20px;
-            border-radius: var(--radius-md);
-            font-size: 0.92rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
         }
 
         /* ================= HERO SECTION ================= */
@@ -278,8 +234,8 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 40px;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 48px;
             align-items: center;
         }
 
@@ -298,26 +254,32 @@
             border: 1px solid rgba(99, 102, 241, 0.35);
             border-radius: var(--radius-full);
             color: #c7d2fe;
-            font-size: 0.82rem;
+            font-size: 0.84rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .pill-dot {
-            width: 7px;
-            height: 7px;
+            width: 8px;
+            height: 8px;
+            background: var(--emerald-light);
             border-radius: 50%;
-            background: var(--emerald);
-            box-shadow: 0 0 8px var(--emerald);
+            box-shadow: 0 0 10px var(--emerald);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
         }
 
         .hero-title {
             font-family: var(--font-head);
-            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-size: clamp(2.4rem, 4.8vw, 3.8rem);
             font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.035em;
-            margin-bottom: 18px;
+            line-height: 1.12;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
         }
 
         .grad-text {
@@ -327,146 +289,189 @@
         }
 
         .hero-sub {
-            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            font-size: 1.12rem;
             color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 30px;
-            max-width: 520px;
+            line-height: 1.65;
+            margin-bottom: 34px;
+            max-width: 540px;
         }
 
         .hero-cta-group {
             display: flex;
+            align-items: center;
+            gap: 16px;
             flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+
+        .btn-play-hero {
+            background: #ffffff;
+            color: #0b0f19;
+            padding: 12px 26px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            display: inline-flex;
             align-items: center;
             gap: 14px;
-            margin-bottom: 34px;
-            width: 100%;
+            font-family: var(--font-head);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+            transition: all 0.25s ease;
+        }
+
+        .btn-play-hero:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 35px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-play-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        .btn-play-sub {
+            font-size: 0.72rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-play-main {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0b0f19;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: #ffffff;
+            padding: 14px 24px;
+            border-radius: var(--radius-md);
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .hero-chips {
             display: flex;
+            gap: 18px;
             flex-wrap: wrap;
-            gap: 16px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-subtle);
-            width: 100%;
         }
 
         .hero-chip {
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 0.84rem;
+            gap: 8px;
+            font-size: 0.88rem;
             color: var(--text-secondary);
-            font-weight: 500;
         }
 
         .hero-chip-icon {
-            color: var(--emerald);
+            color: var(--emerald-light);
             font-weight: bold;
         }
 
         /* ================= SMARTPHONE MOCKUP ================= */
         .mockup-container {
-            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 340px;
-            margin: 0 auto;
+            position: relative;
         }
 
-        /* Interactive Phone Screen Switcher Tabs */
         .mockup-tabs {
             display: flex;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-subtle);
+            background: rgba(255, 255, 255, 0.06);
             padding: 4px;
             border-radius: var(--radius-full);
+            margin-bottom: 18px;
+            border: 1px solid var(--border-subtle);
             gap: 4px;
-            margin-bottom: 16px;
-            width: 100%;
-            max-width: 310px;
         }
 
         .mockup-tab-btn {
-            flex: 1;
             background: transparent;
             border: none;
             color: var(--text-secondary);
-            padding: 6px 8px;
-            border-radius: var(--radius-full);
-            font-size: 0.75rem;
-            font-weight: 600;
             font-family: var(--font-head);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
             cursor: pointer;
-            transition: all 0.2s;
-            text-align: center;
-            white-space: nowrap;
+            transition: all 0.2s ease;
         }
 
         .mockup-tab-btn.active {
             background: var(--primary);
             color: #ffffff;
-            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.5);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
         }
 
         .phone-frame {
-            width: 100%;
-            max-width: 310px;
-            background: #0b0e17;
-            border: 8px solid #1e2638;
-            border-radius: 42px;
-            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.9), 0 0 35px -10px rgba(99, 102, 241, 0.35);
+            width: 300px;
+            height: 600px;
+            background: #090d16;
+            border: 10px solid #1a2336;
+            border-radius: 44px;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 40px rgba(99, 102, 241, 0.2);
+            position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            position: relative;
-            z-index: 5;
-            min-height: 520px;
         }
 
         .phone-island {
             width: 90px;
-            height: 20px;
-            background: #1e2638;
+            height: 18px;
+            background: #1a2336;
             border-radius: 0 0 12px 12px;
             margin: 0 auto;
+            position: relative;
+            z-index: 10;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            flex-shrink: 0;
-        }
-
-        .island-lens {
-            width: 5px;
-            height: 5px;
-            background: #000000;
-            border-radius: 50%;
         }
 
         .island-speaker {
-            width: 26px;
+            width: 30px;
             height: 3px;
-            background: #111624;
+            background: #334155;
             border-radius: 2px;
         }
 
+        .island-lens {
+            width: 6px;
+            height: 6px;
+            background: #1e293b;
+            border-radius: 50%;
+        }
+
         .phone-body {
-            padding: 14px;
+            flex: 1;
+            padding: 16px 14px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            flex: 1;
+            overflow: hidden;
+            position: relative;
         }
 
         .phone-screen-view {
             display: none;
             flex-direction: column;
-            gap: 12px;
+            height: 100%;
             animation: fadeIn 0.3s ease;
         }
 
@@ -479,78 +484,86 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Mockup Header */
         .phone-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .phone-user {
+            display: flex;
+            flex-direction: column;
         }
 
         .phone-user-sub {
-            font-size: 0.68rem;
+            font-size: 0.72rem;
             color: var(--text-muted);
         }
 
         .phone-user-title {
-            font-size: 0.98rem;
-            font-weight: 700;
+            font-size: 1.05rem;
+            font-weight: 800;
             font-family: var(--font-head);
             color: #ffffff;
         }
 
         .phone-avatar {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background: var(--grad-primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #fff;
         }
 
-        /* Mock Main Summary Card */
+        /* Mockup Total Balance Card */
         .mock-balance-card {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(168, 85, 247, 0.15) 100%);
-            border: 1px solid rgba(99, 102, 241, 0.4);
-            border-radius: var(--radius-md);
-            padding: 12px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.15) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            border-radius: 16px;
+            padding: 14px;
+            margin-bottom: 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(10px);
         }
 
         .mock-balance-label {
-            font-size: 0.65rem;
-            color: #c7d2fe;
+            font-size: 0.68rem;
+            color: #cbd5e1;
             text-transform: uppercase;
-            font-weight: 600;
             letter-spacing: 0.04em;
         }
 
         .mock-balance-val {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 800;
             font-family: var(--font-head);
             color: #ffffff;
         }
 
         .mock-balance-pill {
-            font-size: 0.65rem;
-            color: var(--emerald-light);
+            display: inline-block;
+            font-size: 0.64rem;
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            padding: 2px 6px;
+            border-radius: 4px;
             font-weight: 600;
+            margin-top: 2px;
         }
 
+        /* Mockup Progress Ring */
         .ring-svg-wrap {
             position: relative;
             width: 44px;
             height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
         }
 
         .ring-svg {
@@ -562,80 +575,75 @@
         }
 
         .ring-circle-progress {
-            stroke: #10b981;
-            stroke-dasharray: 100;
+            stroke: var(--emerald-light);
+            stroke-dasharray: 100, 100;
             stroke-dashoffset: 28;
             stroke-linecap: round;
         }
 
         .ring-text {
             position: absolute;
-            font-size: 0.65rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.68rem;
             font-weight: 800;
             color: #ffffff;
         }
 
-        /* Mock Goals List */
+        /* Mockup Goal Items */
         .mock-items {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
+            overflow-y: auto;
         }
 
         .mock-item {
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
             padding: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
         }
 
         .mock-item-head {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 6px;
         }
 
         .mock-item-left {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .mock-emoji {
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.06);
-            width: 26px;
-            height: 26px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 1.1rem;
         }
 
         .mock-item-name {
-            font-size: 0.78rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 700;
             color: #ffffff;
         }
 
         .mock-proj-tag {
-            font-size: 0.62rem;
-            color: #c7d2fe;
+            font-size: 0.6rem;
             background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
             padding: 2px 6px;
-            border-radius: 20px;
-            font-weight: 500;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
         .mock-bar-wrap {
-            width: 100%;
             height: 5px;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 3px;
             overflow: hidden;
+            margin-bottom: 6px;
         }
 
         .mock-bar-fill {
@@ -643,9 +651,9 @@
             border-radius: 3px;
         }
 
-        .fill-japan { width: 82%; background: linear-gradient(90deg, #ec4899, #f43f5e); }
+        .fill-japan { width: 82%; background: linear-gradient(90deg, #6366f1, #a855f7); }
         .fill-shield { width: 65%; background: linear-gradient(90deg, #10b981, #06b6d4); }
-        .fill-car { width: 38%; background: linear-gradient(90deg, #6366f1, #8b5cf6); }
+        .fill-car { width: 38%; background: linear-gradient(90deg, #f59e0b, #ec4899); }
 
         .mock-item-foot {
             display: flex;
@@ -654,38 +662,34 @@
             color: var(--text-muted);
         }
 
-        .mock-item-foot strong {
-            color: #ffffff;
-        }
-
-        /* Screen 2: Smart Projections Mock View */
+        /* Screen 2 Projections */
         .proj-card {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
             padding: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+            margin-bottom: 12px;
         }
 
         .proj-badge {
-            font-size: 0.65rem;
+            display: inline-block;
+            font-size: 0.62rem;
             color: #34d399;
             font-weight: 700;
             text-transform: uppercase;
+            margin-bottom: 4px;
         }
 
         .proj-date {
             font-size: 1.15rem;
             font-weight: 800;
             color: #ffffff;
-            font-family: var(--font-head);
+            margin-bottom: 4px;
         }
 
         .proj-desc {
-            font-size: 0.7rem;
-            color: #cbd5e1;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
             line-height: 1.4;
         }
 
@@ -693,61 +697,60 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
+            margin-top: 6px;
         }
 
         .hist-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            padding: 8px 10px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
             font-size: 0.72rem;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 6px 8px;
+            border-radius: 6px;
+            color: #cbd5e1;
         }
 
-        .hist-plus { color: #34d399; font-weight: 700; }
+        .hist-plus {
+            color: var(--emerald-light);
+            font-weight: 700;
+        }
 
-        /* Screen 3: Create Goal Mock View */
+        /* Screen 3 Create Goal */
         .mock-create-form {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .mock-input-box {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            padding: 8px 10px;
-            font-size: 0.75rem;
-            color: #fff;
+            padding: 8px;
+            font-size: 0.72rem;
+            color: #cbd5e1;
         }
 
         .mock-icon-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            display: flex;
             gap: 6px;
+            margin: 4px 0;
         }
 
         .mock-icon-chip {
             background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 6px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 6px;
             font-size: 0.9rem;
             cursor: pointer;
         }
 
         .mock-icon-chip.selected {
-            background: rgba(99, 102, 241, 0.3);
-            border-color: #818cf8;
+            background: rgba(99, 102, 241, 0.4);
+            border: 1px solid var(--primary);
         }
 
-        /* ================= METRICS STATS BANNER ================= */
+        /* ================= STATS SECTION ================= */
         .stats-section {
             padding: 20px 0 60px;
         }
@@ -755,21 +758,27 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 20px;
         }
 
         .stat-card {
-            background: var(--grad-card);
+            background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
-            padding: 24px 20px;
+            padding: 24px;
             text-align: center;
             backdrop-filter: blur(10px);
+            transition: transform 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(99, 102, 241, 0.3);
         }
 
         .stat-number {
             font-family: var(--font-head);
-            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-size: 2.2rem;
             font-weight: 800;
             background: var(--grad-primary);
             -webkit-background-clip: text;
@@ -778,53 +787,55 @@
         }
 
         .stat-label {
-            font-size: 0.95rem;
             font-weight: 700;
-            color: #ffffff;
+            font-size: 1.05rem;
             margin-bottom: 4px;
+            color: #ffffff;
         }
 
         .stat-sub {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
         }
 
-        /* ================= INTERACTIVE SAVINGS CALCULATOR ================= */
+        /* ================= INTERACTIVE CALCULATOR ================= */
         .calculator-section {
             padding: 70px 0;
-            position: relative;
+            background: radial-gradient(ellipse at bottom, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
         }
 
         .calc-wrapper {
-            background: linear-gradient(135deg, rgba(24, 33, 56, 0.9) 0%, rgba(14, 19, 31, 0.95) 100%);
-            border: 1px solid rgba(99, 102, 241, 0.35);
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: var(--radius-xl);
-            padding: clamp(24px, 5vw, 50px);
-            box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.8), 0 0 40px -10px rgba(99, 102, 241, 0.25);
+            padding: 44px;
+            backdrop-filter: blur(16px);
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             align-items: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
         }
 
         .calc-left h2 {
             font-family: var(--font-head);
-            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            font-size: 2rem;
             font-weight: 800;
             margin-bottom: 12px;
-            line-height: 1.2;
+            color: #ffffff;
         }
 
         .calc-left p {
             color: var(--text-secondary);
-            font-size: 0.98rem;
+            font-size: 1rem;
             margin-bottom: 28px;
+            line-height: 1.6;
         }
 
         .calc-control-group {
             display: flex;
             flex-direction: column;
-            gap: 22px;
+            gap: 20px;
         }
 
         .calc-control {
@@ -836,238 +847,225 @@
         .calc-label-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
             font-weight: 600;
+            font-size: 0.95rem;
+            color: #e2e8f0;
         }
 
         .calc-val-display {
+            color: var(--primary-light);
             font-family: var(--font-head);
-            font-size: 1.15rem;
             font-weight: 800;
-            color: #818cf8;
+            font-size: 1.1rem;
         }
 
         .range-slider {
-            -webkit-appearance: none;
-            appearance: none;
             width: 100%;
             height: 8px;
             border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1);
+            background: #1e293b;
             outline: none;
+            -webkit-appearance: none;
             cursor: pointer;
         }
 
         .range-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
-            appearance: none;
             width: 22px;
             height: 22px;
             border-radius: 50%;
             background: var(--primary-light);
-            box-shadow: 0 0 12px var(--primary);
             cursor: pointer;
-            border: 2px solid #ffffff;
+            box-shadow: 0 0 12px var(--primary);
+            transition: transform 0.1s;
         }
 
-        .range-slider::-moz-range-thumb {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: var(--primary-light);
-            box-shadow: 0 0 12px var(--primary);
-            cursor: pointer;
-            border: 2px solid #ffffff;
+        .range-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
         }
 
-        /* Calculator Result Box */
         .calc-result-box {
-            background: #080c16;
-            border: 1px solid var(--border-subtle);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.4);
             border-radius: var(--radius-lg);
-            padding: clamp(20px, 4vw, 32px);
+            padding: 32px;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .calc-result-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--grad-primary);
+            align-items: center;
+            justify-content: center;
         }
 
         .calc-res-label {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #94a3b8;
+            color: #cbd5e1;
             font-weight: 600;
+            margin-bottom: 8px;
         }
 
         .calc-res-months {
             font-family: var(--font-head);
-            font-size: clamp(2.4rem, 5vw, 3.2rem);
+            font-size: 3rem;
             font-weight: 800;
             color: #ffffff;
-            line-height: 1;
+            line-height: 1.1;
+            margin-bottom: 6px;
         }
 
         .calc-res-date {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--emerald-light);
             font-weight: 700;
+            margin-bottom: 20px;
         }
 
         .calc-prog-bar-wrap {
             width: 100%;
             height: 8px;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 4px;
             overflow: hidden;
-            margin: 6px 0;
+            margin-bottom: 14px;
         }
 
         .calc-prog-bar-fill {
-            height: 100%;
             width: 100%;
+            height: 100%;
             background: var(--grad-accent);
-            border-radius: 4px;
-            animation: pulseGlow 2s infinite;
+            animation: pulse-bar 2s infinite ease-in-out;
         }
 
-        @keyframes pulseGlow {
+        @keyframes pulse-bar {
             0%, 100% { opacity: 0.85; }
             50% { opacity: 1; }
         }
 
         .calc-note {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
             line-height: 1.4;
         }
 
-        /* ================= HOW IT WORKS (3 STEPS) ================= */
+        /* ================= 3 STEPS HOW IT WORKS ================= */
         .steps-section {
             padding: 70px 0;
         }
 
         .section-head {
             text-align: center;
-            max-width: 680px;
+            max-width: 640px;
             margin: 0 auto 50px;
         }
 
         .section-title {
             font-family: var(--font-head);
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: 2.3rem;
             font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 14px;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
             color: #ffffff;
         }
 
         .section-desc {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--text-secondary);
         }
 
         .steps-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
 
         .step-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
-            padding: 30px 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
+            padding: 30px;
             position: relative;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.35);
         }
 
         .step-num-badge {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: rgba(99, 102, 241, 0.15);
-            border: 1px solid rgba(99, 102, 241, 0.4);
-            color: #a5b4fc;
+            width: 42px;
+            height: 42px;
+            background: var(--grad-primary);
+            color: #ffffff;
             font-family: var(--font-head);
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
         }
 
         .step-card h3 {
             font-family: var(--font-head);
-            font-size: 1.18rem;
+            font-size: 1.25rem;
             font-weight: 700;
+            margin-bottom: 10px;
             color: #ffffff;
         }
 
         .step-card p {
             color: var(--text-secondary);
             font-size: 0.92rem;
-            line-height: 1.55;
+            line-height: 1.6;
         }
 
         /* ================= FEATURES GRID ================= */
         .features-section {
             padding: 70px 0;
+            background: radial-gradient(ellipse at top, rgba(168, 85, 247, 0.06) 0%, transparent 60%);
         }
 
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
 
         .card-feature {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
-            padding: 28px 22px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            padding: 32px;
+            transition: all 0.25s ease;
         }
 
         .card-feature:hover {
             transform: translateY(-4px);
             background: var(--bg-card-hover);
-            border-color: rgba(99, 102, 241, 0.4);
+            border-color: var(--border-glow);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
         }
 
         .feature-icon-circle {
-            width: 48px;
-            height: 48px;
-            border-radius: var(--radius-md);
-            background: rgba(99, 102, 241, 0.12);
-            border: 1px solid rgba(99, 102, 241, 0.25);
+            width: 52px;
+            height: 52px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: 18px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .card-feature h3 {
             font-family: var(--font-head);
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 10px;
             color: #ffffff;
@@ -1075,38 +1073,40 @@
 
         .card-feature p {
             color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.55;
+            font-size: 0.92rem;
+            line-height: 1.6;
         }
 
-        /* ================= DESKTOP QR CODE & DOWNLOAD BANNER ================= */
+        /* ================= CTA BANNER ================= */
         .cta-section {
-            padding: 70px 0 100px;
+            padding: 80px 0;
         }
 
         .cta-card {
-            background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.3) 0%, rgba(14, 19, 31, 0.95) 75%);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.2) 100%);
             border: 1px solid rgba(99, 102, 241, 0.4);
             border-radius: var(--radius-xl);
-            padding: clamp(30px, 6vw, 60px) 24px;
+            padding: 60px 40px;
             text-align: center;
-            max-width: 860px;
-            margin: 0 auto;
-            box-shadow: 0 0 45px -10px rgba(99, 102, 241, 0.35);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
         .cta-card h2 {
             font-family: var(--font-head);
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: clamp(2rem, 3.6vw, 2.8rem);
             font-weight: 800;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
+            color: #ffffff;
         }
 
         .cta-card p {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            max-width: 540px;
-            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 560px;
+            margin: 0 auto 36px;
+            line-height: 1.6;
         }
 
         .cta-actions-wrap {
@@ -1359,11 +1359,18 @@
                 <span>Savings App</span>
             </a>
             <div class="nav-menu">
-                <a href="#calculator" class="nav-link">Calculadora</a>
-                <a href="#how-it-works" class="nav-link">Como Funciona</a>
-                <a href="#features" class="nav-link">Funcionalidades</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-                <a href="privacy.html" class="nav-link">Privacidade</a>
+                <a href="#calculator" class="nav-link" data-i18n="navCalculator">Calculator</a>
+                <a href="#how-it-works" class="nav-link" data-i18n="navHowItWorks">How It Works</a>
+                <a href="#features" class="nav-link" data-i18n="navFeatures">Features</a>
+                <a href="#faq" class="nav-link" data-i18n="navFaq">FAQ</a>
+                <a href="privacy.html" class="nav-link" data-i18n="navPrivacy">Privacy</a>
+
+                <!-- Language Switcher -->
+                <div class="lang-switcher" aria-label="Language Selector">
+                    <button type="button" class="lang-btn active" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
+                    <button type="button" class="lang-btn" onclick="setLanguage('pt')" id="lang-btn-pt">PT</button>
+                </div>
+
                 <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer" class="btn-nav-play">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/></svg>
                     Google Play
@@ -1378,14 +1385,14 @@
             <div class="hero-left">
                 <div class="pill-badge">
                     <span class="pill-dot"></span>
-                    <span>Versão 1.1.2 • Google Play Store</span>
+                    <span data-i18n="heroPill">Version 1.1.2 • Google Play Store</span>
                 </div>
-                <h1 class="hero-title">
-                    Poupa com método. <br>
-                    <span class="grad-text">Conquista metas.</span>
+                <h1 class="hero-title" data-i18n-html="heroTitle">
+                    Save with purpose. <br>
+                    <span class="grad-text">Reach your goals.</span>
                 </h1>
-                <p class="hero-sub">
-                    Uma aplicação de finanças pessoais elegante, offline-first e inteligente. Acompanha o teu progresso com previsões matemáticas e mantém o controlo total do teu dinheiro com privacidade absoluta.
+                <p class="hero-sub" data-i18n="heroSub">
+                    A sleek, privacy-first, offline personal finance tracker. Forecast your progress with mathematical projections and keep complete control of your wealth with absolute privacy.
                 </p>
                 <div class="hero-cta-group">
                     <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer" class="btn-play-hero">
@@ -1393,24 +1400,24 @@
                             <path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/>
                         </svg>
                         <div class="btn-play-text">
-                            <span class="btn-play-sub">Disponível no</span>
+                            <span class="btn-play-sub" data-i18n="btnAvailableOn">Available on</span>
                             <span class="btn-play-main">Google Play</span>
                         </div>
                     </a>
-                    <a href="#calculator" class="btn-secondary">Simular Poupança ↓</a>
+                    <a href="#calculator" class="btn-secondary" data-i18n="btnSimulate">Simulate Savings ↓</a>
                 </div>
                 <div class="hero-chips">
                     <div class="hero-chip">
                         <span class="hero-chip-icon">✓</span>
-                        <span>100% Offline (SQLite)</span>
+                        <span data-i18n="chipOffline">100% Offline (SQLite)</span>
                     </div>
                     <div class="hero-chip">
                         <span class="hero-chip-icon">✓</span>
-                        <span>Zero Venda de Dados</span>
+                        <span data-i18n="chipNoDataSale">Zero Data Selling</span>
                     </div>
                     <div class="hero-chip">
                         <span class="hero-chip-icon">✓</span>
-                        <span>Backup Google Drive</span>
+                        <span data-i18n="chipDriveBackup">Google Drive Backup</span>
                     </div>
                 </div>
             </div>
@@ -1419,9 +1426,9 @@
             <div class="mockup-container">
                 <!-- Switcher Tabs -->
                 <div class="mockup-tabs">
-                    <button type="button" class="mockup-tab-btn active" onclick="switchMockTab('dashboard')">📊 Dashboard</button>
-                    <button type="button" class="mockup-tab-btn" onclick="switchMockTab('projections')">📈 Projeções</button>
-                    <button type="button" class="mockup-tab-btn" onclick="switchMockTab('create')">🎯 Nova Meta</button>
+                    <button type="button" class="mockup-tab-btn active" onclick="switchMockTab('dashboard')" data-i18n="tabDashboard">📊 Dashboard</button>
+                    <button type="button" class="mockup-tab-btn" onclick="switchMockTab('projections')" data-i18n="tabProjections">📈 Projections</button>
+                    <button type="button" class="mockup-tab-btn" onclick="switchMockTab('create')" data-i18n="tabNewGoal">🎯 New Goal</button>
                 </div>
 
                 <!-- Phone Frame -->
@@ -1435,17 +1442,17 @@
                         <div id="view-dashboard" class="phone-screen-view active">
                             <div class="phone-header">
                                 <div class="phone-user">
-                                    <span class="phone-user-sub">Olá, bem-vindo 👋</span>
-                                    <span class="phone-user-title">Minhas Metas</span>
+                                    <span class="phone-user-sub" data-i18n="mockUserSub">Hello, welcome 👋</span>
+                                    <span class="phone-user-title" data-i18n="mockUserTitle">My Savings Goals</span>
                                 </div>
                                 <div class="phone-avatar">BT</div>
                             </div>
 
                             <div class="mock-balance-card">
                                 <div>
-                                    <div class="mock-balance-label">Total Poupado</div>
-                                    <div class="mock-balance-val">8.450,00 €</div>
-                                    <div class="mock-balance-pill">↑ +350 € este mês</div>
+                                    <div class="mock-balance-label" data-i18n="mockTotalSavedLabel">Total Saved</div>
+                                    <div class="mock-balance-val">$8,450.00</div>
+                                    <div class="mock-balance-pill" data-i18n="mockSavedPill">↑ +$350 this month</div>
                                 </div>
                                 <div class="ring-svg-wrap">
                                     <svg class="ring-svg" width="44" height="44" viewBox="0 0 36 36">
@@ -1461,13 +1468,13 @@
                                     <div class="mock-item-head">
                                         <div class="mock-item-left">
                                             <div class="mock-emoji">✈️</div>
-                                            <div class="mock-item-name">Viagem ao Japão</div>
+                                            <div class="mock-item-name" data-i18n="mockGoal1Name">Japan Trip</div>
                                         </div>
-                                        <span class="mock-proj-tag">Em ~1 mês</span>
+                                        <span class="mock-proj-tag" data-i18n="mockGoal1Tag">In ~1 month</span>
                                     </div>
                                     <div class="mock-bar-wrap"><div class="mock-bar-fill fill-japan"></div></div>
                                     <div class="mock-item-foot">
-                                        <span><strong>2.460 €</strong> de 3.000 €</span>
+                                        <span data-i18n-html="mockGoal1Foot"><strong>$2,460</strong> of $3,000</span>
                                         <span>82%</span>
                                     </div>
                                 </div>
@@ -1476,13 +1483,13 @@
                                     <div class="mock-item-head">
                                         <div class="mock-item-left">
                                             <div class="mock-emoji">🛡️</div>
-                                            <div class="mock-item-name">Fundo Emergência</div>
+                                            <div class="mock-item-name" data-i18n="mockGoal2Name">Emergency Fund</div>
                                         </div>
-                                        <span class="mock-proj-tag">Em ~3 meses</span>
+                                        <span class="mock-proj-tag" data-i18n="mockGoal2Tag">In ~3 months</span>
                                     </div>
                                     <div class="mock-bar-wrap"><div class="mock-bar-fill fill-shield"></div></div>
                                     <div class="mock-item-foot">
-                                        <span><strong>3.250 €</strong> de 5.000 €</span>
+                                        <span data-i18n-html="mockGoal2Foot"><strong>$3,250</strong> of $5,000</span>
                                         <span>65%</span>
                                     </div>
                                 </div>
@@ -1491,13 +1498,13 @@
                                     <div class="mock-item-head">
                                         <div class="mock-item-left">
                                             <div class="mock-emoji">🚗</div>
-                                            <div class="mock-item-name">Carro Novo</div>
+                                            <div class="mock-item-name" data-i18n="mockGoal3Name">New Car</div>
                                         </div>
-                                        <span class="mock-proj-tag">Em ritmo contínuo</span>
+                                        <span class="mock-proj-tag" data-i18n="mockGoal3Tag">Steady pace</span>
                                     </div>
                                     <div class="mock-bar-wrap"><div class="mock-bar-fill fill-car"></div></div>
                                     <div class="mock-item-foot">
-                                        <span><strong>2.740 €</strong> de 7.500 €</span>
+                                        <span data-i18n-html="mockGoal3Foot"><strong>$2,740</strong> of $7,500</span>
                                         <span>38%</span>
                                     </div>
                                 </div>
@@ -1508,31 +1515,31 @@
                         <div id="view-projections" class="phone-screen-view">
                             <div class="phone-header">
                                 <div class="phone-user">
-                                    <span class="phone-user-sub">Viagem ao Japão ✈️</span>
-                                    <span class="phone-user-title">Análise de Projeção</span>
+                                    <span class="phone-user-sub" data-i18n="mockProjHeaderSub">Japan Trip ✈️</span>
+                                    <span class="phone-user-title" data-i18n="mockProjHeaderTitle">Projection Analysis</span>
                                 </div>
                                 <div class="mock-proj-tag">82%</div>
                             </div>
 
                             <div class="proj-card">
-                                <span class="proj-badge">🎯 Estimativa de Conclusão</span>
-                                <div class="proj-date">Novembro 2026</div>
-                                <p class="proj-desc">Mantendo a média de depósitos (+180 €/mês), a meta será batida antes do prazo previsto!</p>
+                                <span class="proj-badge" data-i18n="mockProjBadge">🎯 Estimated Completion</span>
+                                <div class="proj-date" data-i18n="mockProjDate">November 2026</div>
+                                <p class="proj-desc" data-i18n="mockProjDesc">Keeping your deposit pace (+$180/mo), this goal will be achieved before the initial deadline!</p>
                             </div>
 
-                            <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700; text-transform: uppercase;">Últimos Depósitos</div>
+                            <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700; text-transform: uppercase;" data-i18n="mockRecentDeposits">Recent Deposits</div>
                             <div class="history-mini-list">
                                 <div class="hist-item">
-                                    <span>Depósito Mensal</span>
-                                    <span class="hist-plus">+200,00 €</span>
+                                    <span data-i18n="mockDep1">Monthly Deposit</span>
+                                    <span class="hist-plus">+$200.00</span>
                                 </div>
                                 <div class="hist-item">
-                                    <span>Poupança Extra</span>
-                                    <span class="hist-plus">+150,00 €</span>
+                                    <span data-i18n="mockDep2">Extra Savings</span>
+                                    <span class="hist-plus">+$150.00</span>
                                 </div>
                                 <div class="hist-item">
-                                    <span>Venda OLX</span>
-                                    <span class="hist-plus">+60,00 €</span>
+                                    <span data-i18n="mockDep3">Item Sold</span>
+                                    <span class="hist-plus">+$60.00</span>
                                 </div>
                             </div>
                         </div>
@@ -1541,15 +1548,15 @@
                         <div id="view-create" class="phone-screen-view">
                             <div class="phone-header">
                                 <div class="phone-user">
-                                    <span class="phone-user-sub">Novo Objetivo</span>
-                                    <span class="phone-user-title">Criar Meta</span>
+                                    <span class="phone-user-sub" data-i18n="mockNewGoalSub">New Target</span>
+                                    <span class="phone-user-title" data-i18n="mockNewGoalTitle">Create Goal</span>
                                 </div>
                             </div>
 
                             <div class="mock-create-form">
-                                <div class="mock-input-box">📝 Nome: Curso de Programação</div>
-                                <div class="mock-input-box">💶 Valor Objetivo: 1.200,00 €</div>
-                                <div style="font-size: 0.68rem; color: #94a3b8; font-weight: 600;">Escolhe um Ícone:</div>
+                                <div class="mock-input-box" data-i18n="mockGoalNamePlaceholder">📝 Name: Coding Bootcamp</div>
+                                <div class="mock-input-box" data-i18n="mockGoalTargetPlaceholder">💵 Target: $1,200.00</div>
+                                <div style="font-size: 0.68rem; color: #94a3b8; font-weight: 600;" data-i18n="mockPickIcon">Choose an Icon:</div>
                                 <div class="mock-icon-grid">
                                     <div class="mock-icon-chip selected">💻</div>
                                     <div class="mock-icon-chip">🏋️</div>
@@ -1557,8 +1564,8 @@
                                     <div class="mock-icon-chip">🏠</div>
                                     <div class="mock-icon-chip">🚀</div>
                                 </div>
-                                <div style="background: var(--primary); color: #fff; padding: 8px; border-radius: 8px; text-align: center; font-size: 0.75rem; font-weight: 700; margin-top: 4px;">
-                                    Salvar Meta ✨
+                                <div style="background: var(--primary); color: #fff; padding: 8px; border-radius: 8px; text-align: center; font-size: 0.75rem; font-weight: 700; margin-top: 4px;" data-i18n="mockSaveGoalBtn">
+                                    Save Goal ✨
                                 </div>
                             </div>
                         </div>
@@ -1573,19 +1580,19 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">0 €</div>
-                    <div class="stat-label">100% Gratuita</div>
-                    <div class="stat-sub">Sem mensalidades nem funcionalidades bloqueadas.</div>
+                    <div class="stat-number" data-i18n="stat1Num">$0</div>
+                    <div class="stat-label" data-i18n="stat1Label">100% Free</div>
+                    <div class="stat-sub" data-i18n="stat1Sub">No subscription fees or locked premium features.</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">0 Bytes</div>
-                    <div class="stat-label">Privacidade Local</div>
-                    <div class="stat-sub">Base de dados SQLite que nunca sai do teu telemóvel.</div>
+                    <div class="stat-number" data-i18n="stat2Num">0 Bytes</div>
+                    <div class="stat-label" data-i18n="stat2Label">Local Privacy</div>
+                    <div class="stat-sub" data-i18n="stat2Sub">Protected SQLite database that never leaves your phone.</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">&lt; 3 seg</div>
-                    <div class="stat-label">Registo Instantâneo</div>
-                    <div class="stat-sub">Adiciona depósitos e levantamentos em 2 toques.</div>
+                    <div class="stat-number" data-i18n="stat3Num">&lt; 3 sec</div>
+                    <div class="stat-label" data-i18n="stat3Label">Instant Tracking</div>
+                    <div class="stat-sub" data-i18n="stat3Sub">Add deposits and withdrawals in just 2 taps.</div>
                 </div>
             </div>
         </div>
@@ -1596,25 +1603,25 @@
         <div class="container">
             <div class="calc-wrapper">
                 <div class="calc-left">
-                    <div class="pill-badge" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">
-                        Simulador Interativo
+                    <div class="pill-badge" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;" data-i18n="calcPill">
+                        Interactive Simulator
                     </div>
-                    <h2>Descobre quando vais bater a tua meta</h2>
-                    <p>Experimenta simular o teu objetivo financeiro. O motor de cálculo da Savings App calcula em tempo real o tempo necessário para lá chegar.</p>
+                    <h2 data-i18n="calcTitle">Discover when you will hit your target</h2>
+                    <p data-i18n="calcDesc">Simulate your savings goal below. The Savings App calculation engine projects the exact timeline to reach financial freedom in real time.</p>
 
                     <div class="calc-control-group">
                         <div class="calc-control">
                             <div class="calc-label-row">
-                                <span>Qual é o teu objetivo?</span>
-                                <span id="display-target" class="calc-val-display">3.000 €</span>
+                                <span data-i18n="calcLabelTarget">What is your savings goal?</span>
+                                <span id="display-target" class="calc-val-display">$3,000</span>
                             </div>
                             <input type="range" id="slider-target" class="range-slider" min="500" max="25000" step="250" value="3000">
                         </div>
 
                         <div class="calc-control">
                             <div class="calc-label-row">
-                                <span>Quanto consegues poupar por mês?</span>
-                                <span id="display-monthly" class="calc-val-display">150 € / mês</span>
+                                <span data-i18n="calcLabelMonthly">How much can you save monthly?</span>
+                                <span id="display-monthly" class="calc-val-display">$150 / mo</span>
                             </div>
                             <input type="range" id="slider-monthly" class="range-slider" min="20" max="1500" step="10" value="150">
                         </div>
@@ -1622,16 +1629,16 @@
                 </div>
 
                 <div class="calc-result-box">
-                    <span class="calc-res-label">Tempo Estimado para Atingir a Meta</span>
-                    <div id="calc-months" class="calc-res-months">20 Meses</div>
-                    <div id="calc-date" class="calc-res-date">Previsão: Maio de 2028</div>
+                    <span class="calc-res-label" data-i18n="calcResLabel">Estimated Time to Reach Goal</span>
+                    <div id="calc-months" class="calc-res-months">20 Months</div>
+                    <div id="calc-date" class="calc-res-date">Forecast: May 2028</div>
                     
                     <div class="calc-prog-bar-wrap">
                         <div class="calc-prog-bar-fill"></div>
                     </div>
 
-                    <p class="calc-note">
-                        💡 Na aplicação podes criar múltiplos objetivos em simultâneo com ritmos diferentes!
+                    <p class="calc-note" data-i18n="calcNote">
+                        💡 In the app, you can create multiple goals simultaneously with independent paces and categories!
                     </p>
                 </div>
             </div>
@@ -1642,26 +1649,26 @@
     <section id="how-it-works" class="steps-section">
         <div class="container">
             <div class="section-head">
-                <div class="pill-badge">Como Funciona</div>
-                <h2 class="section-title">Poupar dinheiro nunca foi tão simples</h2>
-                <p class="section-desc">Três passos diretos entre o teu objetivo e a realização.</p>
+                <div class="pill-badge" data-i18n="howPill">How It Works</div>
+                <h2 class="section-title" data-i18n="howTitle">Saving money has never been this simple</h2>
+                <p class="section-desc" data-i18n="howDesc">Three direct steps between your dream and reality.</p>
             </div>
 
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-num-badge">1</div>
-                    <h3>Define a tua Meta</h3>
-                    <p>Dá um nome ao teu sonho, escolhe o montante final, um ícone personalizado (avião, carro, casa, etc.) e a tua cor favorita.</p>
+                    <h3 data-i18n="step1Title">Define Your Goal</h3>
+                    <p data-i18n="step1Desc">Name your dream, set your target amount, pick a custom emoji icon (flight, car, home, etc.), and choose your favorite color theme.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-num-badge">2</div>
-                    <h3>Regista em 2 Toques</h3>
-                    <p>Sempre que guardares dinheiro, adiciona um depósito em segundos. Podes ver o teu anel de progresso circular a encher em tempo real.</p>
+                    <h3 data-i18n="step2Title">Track in 2 Taps</h3>
+                    <p data-i18n="step2Desc">Whenever you save money, add a deposit in seconds. Watch your circular progress ring fill up in real time.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-num-badge">3</div>
-                    <h3>Acompanha a Previsão</h3>
-                    <p>O algoritmo inteligente calcula e ajusta automaticamente a data prevista em que baterás a tua meta com base no teu ritmo real.</p>
+                    <h3 data-i18n="step3Title">Follow Projections</h3>
+                    <p data-i18n="step3Desc">Our smart mathematical algorithm automatically calculates and updates your projected completion date based on your true pace.</p>
                 </div>
             </div>
         </div>
@@ -1671,46 +1678,46 @@
     <section id="features" class="features-section">
         <div class="container">
             <div class="section-head">
-                <div class="pill-badge">Recursos da App</div>
-                <h2 class="section-title">Concebida para a tua liberdade financeira</h2>
-                <p class="section-desc">Tudo o que precisas para gerir as tuas economias sem fricções.</p>
+                <div class="pill-badge" data-i18n="featPill">App Features</div>
+                <h2 class="section-title" data-i18n="featTitle">Engineered for your financial freedom</h2>
+                <p class="section-desc" data-i18n="featDesc">Everything you need to manage your personal wealth without friction.</p>
             </div>
 
             <div class="cards-grid">
                 <div class="card-feature">
                     <div class="feature-icon-circle">🔒</div>
-                    <h3>100% Offline & Privado</h3>
-                    <p>A tua informação é estritamente tua. Os dados vivem num banco de dados SQLite local no teu telemóvel, sem qualquer servidor externo.</p>
+                    <h3 data-i18n="feat1Title">100% Offline & Private</h3>
+                    <p data-i18n="feat1Desc">Your financial data belongs exclusively to you. Stored locally in a secure SQLite database without external servers.</p>
                 </div>
 
                 <div class="card-feature">
                     <div class="feature-icon-circle">📈</div>
-                    <h3>Motor de Projeção Inteligente</h3>
-                    <p>Algoritmos matemáticos que calculam estimativas realistas de conclusão com base no teu histórico de depósitos.</p>
+                    <h3 data-i18n="feat2Title">Smart Projection Engine</h3>
+                    <p data-i18n="feat2Desc">Mathematical algorithms calculate realistic completion forecasts based on your deposit history and pace.</p>
                 </div>
 
                 <div class="card-feature">
                     <div class="feature-icon-circle">☁️</div>
-                    <h3>Backup Google Drive</h3>
-                    <p>Guarda e restaura com segurança os teus objetivos na tua própria conta Google pessoal com um toque.</p>
+                    <h3 data-i18n="feat3Title">Google Drive Backup</h3>
+                    <p data-i18n="feat3Desc">Securely backup and restore all your savings data directly to your personal Google Drive account in one tap.</p>
                 </div>
 
                 <div class="card-feature">
                     <div class="feature-icon-circle">🎨</div>
-                    <h3>Glassmorphism & Modos de Cor</h3>
-                    <p>Interface moderna com suporte fluido a Modo Claro e Escuro, efeitos translúcidos e dezenas de ícones personalizáveis.</p>
+                    <h3 data-i18n="feat4Title">Glassmorphism & Themes</h3>
+                    <p data-i18n="feat4Desc">Clean modern UI with fluid Dark/Light mode support, translucent cards, and multiple vibrant accent colors.</p>
                 </div>
 
                 <div class="card-feature">
                     <div class="feature-icon-circle">🌍</div>
-                    <h3>Suporte Multi-Moeda</h3>
-                    <p>Formatação flexível e inteligente para qualquer moeda mundial (€, $, £, R$, CHF, etc.) com respeito às regras de pontuação.</p>
+                    <h3 data-i18n="feat5Title">Multi-Currency Support</h3>
+                    <p data-i18n="feat5Desc">Universal formatting for any currency ($, €, £, R$, CHF, ¥, etc.) with localized number conventions.</p>
                 </div>
 
                 <div class="card-feature">
                     <div class="feature-icon-circle">⚡</div>
-                    <h3>Gestos e Ordenação Ágil</h3>
-                    <p>Arrasta para ordenar prioridades, desliza para ações rápidas e organiza por nome, valor acumulado ou percentagem.</p>
+                    <h3 data-i18n="feat6Title">Fluid Gestures & Reordering</h3>
+                    <p data-i18n="feat6Desc">Drag-and-drop to reorder priority, swipe for quick actions, and filter by completion rate or total saved.</p>
                 </div>
             </div>
         </div>
@@ -1720,27 +1727,27 @@
     <section id="faq" class="faq-section">
         <div class="container">
             <div class="section-head">
-                <div class="pill-badge">Dúvidas Frequentes</div>
-                <h2 class="section-title">Perguntas e Respostas</h2>
-                <p class="section-desc">Tudo o que precisas de saber sobre a aplicação.</p>
+                <div class="pill-badge" data-i18n="faqPill">Frequently Asked Questions</div>
+                <h2 class="section-title" data-i18n="faqTitle">Questions & Answers</h2>
+                <p class="section-desc" data-i18n="faqDesc">Everything you need to know about Savings App.</p>
             </div>
 
             <div class="faq-grid">
                 <div class="faq-box">
-                    <h4>Os meus dados financeiros estão seguros?</h4>
-                    <p>Sim. A aplicação guarda todos os dados localmente no teu telemóvel através de SQLite. Nós não temos qualquer acesso ao teu saldo ou às tuas metas.</p>
+                    <h4 data-i18n="faq1Q">Is my financial data secure?</h4>
+                    <p data-i18n="faq1A">Yes. The app saves all records strictly on your local device via SQLite. We never have access to your balances or goals.</p>
                 </div>
                 <div class="faq-box">
-                    <h4>É obrigatório criar conta?</h4>
-                    <p>Não! Podes usar a app a 100% sem registo. O login Google só é necessário caso queiras ativar o backup voluntário no Google Drive.</p>
+                    <h4 data-i18n="faq2Q">Do I need to create an account?</h4>
+                    <p data-i18n="faq2A">No! You can use the entire app with zero registration. Google login is only needed if you voluntarily enable Google Drive cloud backup.</p>
                 </div>
                 <div class="faq-box">
-                    <h4>A aplicação funciona sem internet?</h4>
-                    <p>Totalmente. Todas as funcionalidades de adicionar metas, gerir transações e calcular projeções funcionam 100% offline.</p>
+                    <h4 data-i18n="faq3Q">Does the app work without internet?</h4>
+                    <p data-i18n="faq3A">Absolutely. Adding goals, logging transactions, and calculating projections work 100% offline.</p>
                 </div>
                 <div class="faq-box">
-                    <h4>Onde posso ler a Política de Privacidade?</h4>
-                    <p>Podes consultar todos os detalhes legais, termos de proteção de dados e remoção de conta na nossa <a href="privacy.html" style="color:#818cf8; text-decoration: underline;">página de Privacidade</a>.</p>
+                    <h4 data-i18n="faq4Q">Where can I read the Privacy Policy?</h4>
+                    <p data-i18n-html="faq4A">You can review our full legal terms, data protection details, and account deletion steps on our <a href="privacy.html" style="color:#818cf8; text-decoration: underline;">Privacy Policy page</a>.</p>
                 </div>
             </div>
         </div>
@@ -1750,8 +1757,8 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-card">
-                <h2>Começa a poupar para os teus sonhos hoje mesmo</h2>
-                <p>Disponível gratuitamente na Google Play Store. Descarrega agora e transforma os teus planos em conquistas.</p>
+                <h2 data-i18n="ctaTitle">Start saving for your dreams today</h2>
+                <p data-i18n="ctaDesc">Available for free on Google Play. Download now and turn your financial plans into reality.</p>
                 
                 <div class="cta-actions-wrap">
                     <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer" class="btn-play-hero">
@@ -1759,15 +1766,15 @@
                             <path d="M3.609 1.814L13.792 12 3.61 22.186c-.347-.282-.61-.75-.61-1.373V3.187c0-.623.263-1.091.609-1.373zm11.235 11.238l2.585 2.586-12.062 6.892 9.477-9.478zm2.586-2.586L14.845 10.95 5.367 1.472l12.063 6.894zm1.057 1.058l3.197 1.827c.82.469.82 1.236 0 1.705l-3.197 1.827-2.316-2.316 2.316-2.316z"/>
                         </svg>
                         <div class="btn-play-text">
-                            <span class="btn-play-sub">Disponível no</span>
+                            <span class="btn-play-sub" data-i18n="btnAvailableOn">Available on</span>
                             <span class="btn-play-main">Google Play</span>
                         </div>
                     </a>
 
                     <!-- Real Scannable QR Code for Direct Play Store Download -->
-                    <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer" class="qr-card-box" title="Aponta a câmara do telemóvel para abrir na Play Store">
+                    <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer" class="qr-card-box" title="Scan with your phone to open on Google Play">
                         <img src="assets/qrcode.svg" alt="Google Play Store QR Code" width="88" height="88">
-                        <span class="qr-card-text">Lê o QR Code</span>
+                        <span class="qr-card-text" data-i18n="qrScanText">Scan QR Code</span>
                     </a>
                 </div>
             </div>
@@ -1782,31 +1789,304 @@
                     <img src="assets/icon.png" alt="Savings App Logo" class="footer-logo" width="30" height="30">
                     <span>Savings App</span>
                 </div>
-                <p style="font-size: 0.88rem; color: var(--text-muted);">Controlo financeiro inteligente, seguro e 100% privado.</p>
+                <p style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="footerSub">Smart, secure, and 100% private personal financial tracking.</p>
             </div>
             <div class="footer-nav">
-                <a href="#calculator">Calculadora</a>
-                <a href="#how-it-works">Como Funciona</a>
-                <a href="#features">Funcionalidades</a>
-                <a href="#faq">FAQ</a>
-                <a href="privacy.html">Privacidade</a>
+                <a href="#calculator" data-i18n="navCalculator">Calculator</a>
+                <a href="#how-it-works" data-i18n="navHowItWorks">How It Works</a>
+                <a href="#features" data-i18n="navFeatures">Features</a>
+                <a href="#faq" data-i18n="navFaq">FAQ</a>
+                <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
                 <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer">Google Play Store</a>
             </div>
         </div>
         <div class="container footer-copy">
-            <p>&copy; 2026 Savings App. Todos os direitos reservados.</p>
+            <p data-i18n-html="footerCopy">&copy; 2026 Savings App. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Interactive JavaScript -->
+    <!-- Interactive JavaScript & i18n Translation Engine -->
     <script>
-        // 1. Mockup Tab Switcher
+        // 1. i18n Translation Dictionary
+        const translations = {
+            en: {
+                pageTitle: "Savings App — Save with purpose. Reach your goals.",
+                metaDesc: "The offline-first, secure, and smart savings tracker app for Android. Set goals, forecast progress with smart projections, and control your wealth.",
+                ogTitle: "Savings App — Save with purpose",
+                ogDesc: "Sleek, privacy-first, and intelligent personal finance tracker.",
+                navCalculator: "Calculator",
+                navHowItWorks: "How It Works",
+                navFeatures: "Features",
+                navFaq: "FAQ",
+                navPrivacy: "Privacy",
+                heroPill: "Version 1.1.2 • Google Play Store",
+                heroTitle: "Save with purpose. <br><span class=\"grad-text\">Reach your goals.</span>",
+                heroSub: "A sleek, privacy-first, offline personal finance tracker. Forecast your progress with mathematical projections and keep complete control of your wealth with absolute privacy.",
+                btnAvailableOn: "Available on",
+                btnSimulate: "Simulate Savings ↓",
+                chipOffline: "100% Offline (SQLite)",
+                chipNoDataSale: "Zero Data Selling",
+                chipDriveBackup: "Google Drive Backup",
+                tabDashboard: "📊 Dashboard",
+                tabProjections: "📈 Projections",
+                tabNewGoal: "🎯 New Goal",
+                mockUserSub: "Hello, welcome 👋",
+                mockUserTitle: "My Savings Goals",
+                mockTotalSavedLabel: "Total Saved",
+                mockSavedPill: "↑ +$350 this month",
+                mockGoal1Name: "Japan Trip",
+                mockGoal1Tag: "In ~1 month",
+                mockGoal1Foot: "<strong>$2,460</strong> of $3,000",
+                mockGoal2Name: "Emergency Fund",
+                mockGoal2Tag: "In ~3 months",
+                mockGoal2Foot: "<strong>$3,250</strong> of $5,000",
+                mockGoal3Name: "New Car",
+                mockGoal3Tag: "Steady pace",
+                mockGoal3Foot: "<strong>$2,740</strong> of $7,500",
+                mockProjHeaderSub: "Japan Trip ✈️",
+                mockProjHeaderTitle: "Projection Analysis",
+                mockProjBadge: "🎯 Estimated Completion",
+                mockProjDate: "November 2026",
+                mockProjDesc: "Keeping your deposit pace (+$180/mo), this goal will be achieved before the initial deadline!",
+                mockRecentDeposits: "Recent Deposits",
+                mockDep1: "Monthly Deposit",
+                mockDep2: "Extra Savings",
+                mockDep3: "Item Sold",
+                mockNewGoalSub: "New Target",
+                mockNewGoalTitle: "Create Goal",
+                mockGoalNamePlaceholder: "📝 Name: Coding Bootcamp",
+                mockGoalTargetPlaceholder: "💵 Target: $1,200.00",
+                mockPickIcon: "Choose an Icon:",
+                mockSaveGoalBtn: "Save Goal ✨",
+                stat1Num: "$0",
+                stat1Label: "100% Free",
+                stat1Sub: "No subscription fees or locked premium features.",
+                stat2Num: "0 Bytes",
+                stat2Label: "Local Privacy",
+                stat2Sub: "Protected SQLite database that never leaves your phone.",
+                stat3Num: "< 3 sec",
+                stat3Label: "Instant Tracking",
+                stat3Sub: "Add deposits and withdrawals in just 2 taps.",
+                calcPill: "Interactive Simulator",
+                calcTitle: "Discover when you will hit your target",
+                calcDesc: "Simulate your savings goal below. The Savings App calculation engine projects the exact timeline to reach financial freedom in real time.",
+                calcLabelTarget: "What is your savings goal?",
+                calcLabelMonthly: "How much can you save monthly?",
+                calcResLabel: "Estimated Time to Reach Goal",
+                calcMonthUnitSingular: "Month",
+                calcMonthUnitPlural: "Months",
+                calcForecastPrefix: "Forecast: ",
+                calcMonthlySuffix: " / mo",
+                calcNote: "💡 In the app, you can create multiple goals simultaneously with independent paces and categories!",
+                howPill: "How It Works",
+                howTitle: "Saving money has never been this simple",
+                howDesc: "Three direct steps between your dream and reality.",
+                step1Title: "Define Your Goal",
+                step1Desc: "Name your dream, set your target amount, pick a custom emoji icon (flight, car, home, etc.), and choose your favorite color theme.",
+                step2Title: "Track in 2 Taps",
+                step2Desc: "Whenever you save money, add a deposit in seconds. Watch your circular progress ring fill up in real time.",
+                step3Title: "Follow Projections",
+                step3Desc: "Our smart mathematical algorithm automatically calculates and updates your projected completion date based on your true pace.",
+                featPill: "App Features",
+                featTitle: "Engineered for your financial freedom",
+                featDesc: "Everything you need to manage your personal wealth without friction.",
+                feat1Title: "100% Offline & Private",
+                feat1Desc: "Your financial data belongs exclusively to you. Stored locally in a secure SQLite database without external servers.",
+                feat2Title: "Smart Projection Engine",
+                feat2Desc: "Mathematical algorithms calculate realistic completion forecasts based on your deposit history and pace.",
+                feat3Title: "Google Drive Backup",
+                feat3Desc: "Securely backup and restore all your savings data directly to your personal Google Drive account in one tap.",
+                feat4Title: "Glassmorphism & Themes",
+                feat4Desc: "Clean modern UI with fluid Dark/Light mode support, translucent cards, and multiple vibrant accent colors.",
+                feat5Title: "Multi-Currency Support",
+                feat5Desc: "Universal formatting for any currency ($, €, £, R$, CHF, ¥, etc.) with localized number conventions.",
+                feat6Title: "Fluid Gestures & Reordering",
+                feat6Desc: "Drag-and-drop to reorder priority, swipe for quick actions, and filter by completion rate or total saved.",
+                faqPill: "Frequently Asked Questions",
+                faqTitle: "Questions & Answers",
+                faqDesc: "Everything you need to know about Savings App.",
+                faq1Q: "Is my financial data secure?",
+                faq1A: "Yes. The app saves all records strictly on your local device via SQLite. We never have access to your balances or goals.",
+                faq2Q: "Do I need to create an account?",
+                faq2A: "No! You can use the entire app with zero registration. Google login is only needed if you voluntarily enable Google Drive cloud backup.",
+                faq3Q: "Does the app work without internet?",
+                faq3A: "Absolutely. Adding goals, logging transactions, and calculating projections work 100% offline.",
+                faq4Q: "Where can I read the Privacy Policy?",
+                faq4A: "You can review our full legal terms, data protection details, and account deletion steps on our <a href=\"privacy.html\" style=\"color:#818cf8; text-decoration: underline;\">Privacy Policy page</a>.",
+                ctaTitle: "Start saving for your dreams today",
+                ctaDesc: "Available for free on Google Play. Download now and turn your financial plans into reality.",
+                qrScanText: "Scan QR Code",
+                footerSub: "Smart, secure, and 100% private personal financial tracking.",
+                footerCopy: "&copy; 2026 Savings App. All rights reserved.",
+                months: [
+                    "January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"
+                ],
+                currencySymbol: "$",
+                currencyFormat: "en-US"
+            },
+            pt: {
+                pageTitle: "Savings App — Poupa com método. Conquista os teus objetivos.",
+                metaDesc: "A aplicação de poupança offline-first, segura e inteligente para Android. Define metas, simula poupanças com projeções inteligentes e acompanha o teu progresso.",
+                ogTitle: "Savings App — Poupa com método",
+                ogDesc: "A aplicação de finanças pessoais elegante, offline-first e inteligente.",
+                navCalculator: "Calculadora",
+                navHowItWorks: "Como Funciona",
+                navFeatures: "Funcionalidades",
+                navFaq: "FAQ",
+                navPrivacy: "Privacidade",
+                heroPill: "Versão 1.1.2 • Google Play Store",
+                heroTitle: "Poupa com método. <br><span class=\"grad-text\">Conquista metas.</span>",
+                heroSub: "Uma aplicação de finanças pessoais elegante, offline-first e inteligente. Acompanha o teu progresso com previsões matemáticas e mantém o controlo total do teu dinheiro com privacidade absoluta.",
+                btnAvailableOn: "Disponível no",
+                btnSimulate: "Simular Poupança ↓",
+                chipOffline: "100% Offline (SQLite)",
+                chipNoDataSale: "Zero Venda de Dados",
+                chipDriveBackup: "Backup Google Drive",
+                tabDashboard: "📊 Dashboard",
+                tabProjections: "📈 Projeções",
+                tabNewGoal: "🎯 Nova Meta",
+                mockUserSub: "Olá, bem-vindo 👋",
+                mockUserTitle: "Minhas Metas",
+                mockTotalSavedLabel: "Total Poupado",
+                mockSavedPill: "↑ +350 € este mês",
+                mockGoal1Name: "Viagem ao Japão",
+                mockGoal1Tag: "Em ~1 mês",
+                mockGoal1Foot: "<strong>2.460 €</strong> de 3.000 €",
+                mockGoal2Name: "Fundo Emergência",
+                mockGoal2Tag: "Em ~3 meses",
+                mockGoal2Foot: "<strong>3.250 €</strong> de 5.000 €",
+                mockGoal3Name: "Carro Novo",
+                mockGoal3Tag: "Em ritmo contínuo",
+                mockGoal3Foot: "<strong>2.740 €</strong> de 7.500 €",
+                mockProjHeaderSub: "Viagem ao Japão ✈️",
+                mockProjHeaderTitle: "Análise de Projeção",
+                mockProjBadge: "🎯 Estimativa de Conclusão",
+                mockProjDate: "Novembro 2026",
+                mockProjDesc: "Mantendo a média de depósitos (+180 €/mês), a meta será batida antes do prazo previsto!",
+                mockRecentDeposits: "Últimos Depósitos",
+                mockDep1: "Depósito Mensal",
+                mockDep2: "Poupança Extra",
+                mockDep3: "Venda OLX",
+                mockNewGoalSub: "Novo Objetivo",
+                mockNewGoalTitle: "Criar Meta",
+                mockGoalNamePlaceholder: "📝 Nome: Curso de Programação",
+                mockGoalTargetPlaceholder: "💶 Valor Objetivo: 1.200,00 €",
+                mockPickIcon: "Escolhe um Ícone:",
+                mockSaveGoalBtn: "Salvar Meta ✨",
+                stat1Num: "0 €",
+                stat1Label: "100% Gratuita",
+                stat1Sub: "Sem mensalidades nem funcionalidades bloqueadas.",
+                stat2Num: "0 Bytes",
+                stat2Label: "Privacidade Local",
+                stat2Sub: "Base de dados SQLite que nunca sai do teu telemóvel.",
+                stat3Num: "< 3 seg",
+                stat3Label: "Registo Instantâneo",
+                stat3Sub: "Adiciona depósitos e levantamentos em 2 toques.",
+                calcPill: "Simulador Interativo",
+                calcTitle: "Descobre quando vais bater a tua meta",
+                calcDesc: "Experimenta simular o teu objetivo financeiro. O motor de cálculo da Savings App calcula em tempo real o tempo necessário para lá chegar.",
+                calcLabelTarget: "Qual é o teu objetivo?",
+                calcLabelMonthly: "Quanto consegues poupar por mês?",
+                calcResLabel: "Tempo Estimado para Atingir a Meta",
+                calcMonthUnitSingular: "Mês",
+                calcMonthUnitPlural: "Meses",
+                calcForecastPrefix: "Previsão: ",
+                calcMonthlySuffix: " / mês",
+                calcNote: "💡 Na aplicação podes criar múltiplos objetivos em simultâneo com ritmos diferentes!",
+                howPill: "Como Funciona",
+                howTitle: "Poupar dinheiro nunca foi tão simples",
+                howDesc: "Três passos diretos entre o teu objetivo e a realização.",
+                step1Title: "Define a tua Meta",
+                step1Desc: "Dá um nome ao teu sonho, escolhe o montante final, um ícone personalizado (avião, carro, casa, etc.) e a tua cor favorita.",
+                step2Title: "Regista em 2 Toques",
+                step2Desc: "Sempre que guardares dinheiro, adiciona um depósito em segundos. Podes ver o teu anel de progresso circular a encher em tempo real.",
+                step3Title: "Acompanha a Previsão",
+                step3Desc: "O algoritmo inteligente calcula e ajusta automaticamente a data prevista em que baterás a tua meta com base no teu ritmo real.",
+                featPill: "Recursos da App",
+                featTitle: "Concebida para a tua liberdade financeira",
+                featDesc: "Tudo o que precisas para gerir as tuas economias sem fricções.",
+                feat1Title: "100% Offline & Privado",
+                feat1Desc: "A tua informação é estritamente tua. Os dados vivem num banco de dados SQLite local no teu telemóvel, sem qualquer servidor externo.",
+                feat2Title: "Motor de Projeção Inteligente",
+                feat2Desc: "Algoritmos matemáticos que calculam estimativas realistas de conclusão com base no teu histórico de depósitos.",
+                feat3Title: "Backup Google Drive",
+                feat3Desc: "Guarda e restaura com segurança os teus objetivos na tua própria conta Google pessoal com um toque.",
+                feat4Title: "Glassmorphism & Modos de Cor",
+                feat4Desc: "Interface moderna com suporte fluido a Modo Claro e Escuro, efeitos translúcidos e dezenas de ícones personalizáveis.",
+                feat5Title: "Suporte Multi-Moeda",
+                feat5Desc: "Formatação flexível e inteligente para qualquer moeda mundial (€, $, £, R$, CHF, etc.) com respeito às regras de pontuação.",
+                feat6Title: "Gestos e Ordenação Ágil",
+                feat6Desc: "Arrasta para ordenar prioridades, desliza para ações rápidas e organiza por nome, valor acumulado ou percentagem.",
+                faqPill: "Dúvidas Frequentes",
+                faqTitle: "Perguntas e Respostas",
+                faqDesc: "Tudo o que precisas de saber sobre a aplicação.",
+                faq1Q: "Os meus dados financeiros estão seguros?",
+                faq1A: "Sim. A aplicação guarda todos os dados localmente no teu telemóvel através de SQLite. Nós não temos qualquer acesso ao teu saldo ou às tuas metas.",
+                faq2Q: "É obrigatório criar conta?",
+                faq2A: "Não! Podes usar a app a 100% sem registo. O login Google só é necessário caso queiras ativar o backup voluntário no Google Drive.",
+                faq3Q: "A aplicação funciona sem internet?",
+                faq3A: "Totalmente. Todas as funcionalidades de adicionar metas, gerir transações e calcular projeções funcionam 100% offline.",
+                faq4Q: "Onde posso ler a Política de Privacidade?",
+                faq4A: "Podes consultar todos os detalhes legais, termos de proteção de dados e remoção de conta na nossa <a href=\"privacy.html\" style=\"color:#818cf8; text-decoration: underline;\">página de Privacidade</a>.",
+                ctaTitle: "Começa a poupar para os teus sonhos hoje mesmo",
+                ctaDesc: "Disponível gratuitamente na Google Play Store. Descarrega agora e transforma os teus planos em conquistas.",
+                qrScanText: "Lê o QR Code",
+                footerSub: "Controlo financeiro inteligente, seguro e 100% privado.",
+                footerCopy: "&copy; 2026 Savings App. Todos os direitos reservados.",
+                months: [
+                    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                    "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+                ],
+                currencySymbol: "€",
+                currencyFormat: "pt-PT"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            if (!translations[lang]) lang = 'en';
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            localStorage.setItem('savings_app_lang', lang);
+
+            // Update switcher buttons
+            document.getElementById('lang-btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-btn-pt').classList.toggle('active', lang === 'pt');
+
+            // Update meta tags
+            document.getElementById('doc-title').textContent = translations[lang].pageTitle;
+            const metaDesc = document.getElementById('meta-desc');
+            if (metaDesc) metaDesc.setAttribute('content', translations[lang].metaDesc);
+
+            // Update all text elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key] !== undefined) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update all HTML elements with data-i18n-html
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (translations[lang][key] !== undefined) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Recalculate calculator
+            updateCalculator();
+        }
+
+        // 2. Mockup Tab Switcher
         function switchMockTab(tabId) {
             document.querySelectorAll('.mockup-tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.phone-screen-view').forEach(view => view.classList.remove('active'));
             
-            if (event && event.target) {
-                event.target.classList.add('active');
+            if (window.event && window.event.target) {
+                window.event.target.classList.add('active');
             }
             
             const targetView = document.getElementById('view-' + tabId);
@@ -1815,7 +2095,7 @@
             }
         }
 
-        // 2. Interactive Savings Calculator
+        // 3. Interactive Savings Calculator
         const sliderTarget = document.getElementById('slider-target');
         const sliderMonthly = document.getElementById('slider-monthly');
         const displayTarget = document.getElementById('display-target');
@@ -1823,33 +2103,54 @@
         const calcMonths = document.getElementById('calc-months');
         const calcDate = document.getElementById('calc-date');
 
-        const monthsNames = [
-            "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
-        ];
-
         function updateCalculator() {
             const target = parseFloat(sliderTarget.value);
             const monthly = parseFloat(sliderMonthly.value);
+            const dict = translations[currentLang] || translations.en;
 
-            displayTarget.textContent = target.toLocaleString('pt-PT') + ' €';
-            displayMonthly.textContent = monthly.toLocaleString('pt-PT') + ' € / mês';
+            if (currentLang === 'pt') {
+                displayTarget.textContent = target.toLocaleString('pt-PT') + ' €';
+                displayMonthly.textContent = monthly.toLocaleString('pt-PT') + ' €' + dict.calcMonthlySuffix;
+            } else {
+                displayTarget.textContent = '$' + target.toLocaleString('en-US');
+                displayMonthly.textContent = '$' + monthly.toLocaleString('en-US') + dict.calcMonthlySuffix;
+            }
 
             const monthsNeeded = Math.ceil(target / monthly);
-            calcMonths.textContent = monthsNeeded + (monthsNeeded === 1 ? ' Mês' : ' Meses');
+            calcMonths.textContent = monthsNeeded + ' ' + (monthsNeeded === 1 ? dict.calcMonthUnitSingular : dict.calcMonthUnitPlural);
 
             // Calculate projected date
             const now = new Date();
             now.setMonth(now.getMonth() + monthsNeeded);
-            const targetMonth = monthsNames[now.getMonth()];
+            const targetMonth = dict.months[now.getMonth()];
             const targetYear = now.getFullYear();
 
-            calcDate.textContent = 'Previsão: ' + targetMonth + ' de ' + targetYear;
+            if (currentLang === 'pt') {
+                calcDate.textContent = dict.calcForecastPrefix + targetMonth + ' de ' + targetYear;
+            } else {
+                calcDate.textContent = dict.calcForecastPrefix + targetMonth + ' ' + targetYear;
+            }
         }
 
         sliderTarget.addEventListener('input', updateCalculator);
         sliderMonthly.addEventListener('input', updateCalculator);
-        updateCalculator();
+
+        // Initial setup on page load
+        (function initLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+            const savedLang = localStorage.getItem('savings_app_lang');
+            
+            // Priority: URL param > localStorage > English default
+            let initialLang = 'en';
+            if (langParam && translations[langParam]) {
+                initialLang = langParam;
+            } else if (savedLang && translations[savedLang]) {
+                initialLang = savedLang;
+            }
+
+            setLanguage(initialLang);
+        })();
     </script>
 </body>
 

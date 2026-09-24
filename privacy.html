@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidade | Savings App</title>
+    <title id="privacy-doc-title">Privacy Policy | Savings App</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +24,7 @@
             --grad-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
             --radius-md: 14px;
             --radius-xl: 28px;
+            --radius-full: 9999px;
             --font-head: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
@@ -66,7 +67,7 @@
 
         /* Navbar */
         .navbar {
-            background: rgba(7, 9, 14, 0.8);
+            background: rgba(7, 9, 14, 0.85);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-subtle);
             padding: 14px 0;
@@ -103,6 +104,12 @@
             object-fit: cover;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
         .nav-link {
             color: var(--text-secondary);
             text-decoration: none;
@@ -113,6 +120,40 @@
 
         .nav-link:hover {
             color: #ffffff;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-full);
+            padding: 2px 3px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-head);
+            font-size: 0.76rem;
+            font-weight: 700;
+            padding: 4px 9px;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            color: #ffffff;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.45);
         }
 
         /* Main Legal Content */
@@ -136,7 +177,7 @@
             padding: 6px 14px;
             background: rgba(99, 102, 241, 0.12);
             border: 1px solid rgba(99, 102, 241, 0.35);
-            border-radius: 9999px;
+            border-radius: var(--radius-full);
             color: #c7d2fe;
             font-size: 0.84rem;
             font-weight: 600;
@@ -180,17 +221,17 @@
             font-size: 1.05rem;
             font-weight: 600;
             color: #e2e8f0;
-            margin: 18px 0 8px;
-            padding-left: 15px;
+            margin: 20px 0 10px;
         }
 
         .legal-body ul {
-            margin: 10px 0 20px 30px;
+            margin: 0 0 24px 20px;
             color: #cbd5e1;
         }
 
         .legal-body li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            line-height: 1.6;
         }
 
         .legal-body a {
@@ -202,14 +243,12 @@
             color: #a5b4fc;
         }
 
-        /* Footer */
         .footer {
-            background: #05070a;
             border-top: 1px solid var(--border-subtle);
-            padding: 40px 0;
+            padding: 30px 0;
             text-align: center;
+            font-size: 0.88rem;
             color: var(--text-muted);
-            font-size: 0.85rem;
         }
 
         @media (max-width: 768px) {
@@ -229,64 +268,160 @@
     <nav class="navbar">
         <div class="nav-wrap">
             <a href="index.html" class="nav-brand">
-                <img src="assets/icon.png" alt="Savings App Logo" class="nav-logo" width="36" height="36">
+                <img src="assets/icon.png" alt="Savings App Logo" class="nav-logo">
                 <span>Savings App</span>
             </a>
-            <a href="index.html" class="nav-link">← Voltar ao Início</a>
+            <div class="nav-right">
+                <div class="lang-switcher" aria-label="Language Selector">
+                    <button type="button" class="lang-btn active" onclick="setPrivacyLang('en')" id="lang-btn-en">EN</button>
+                    <button type="button" class="lang-btn" onclick="setPrivacyLang('pt')" id="lang-btn-pt">PT</button>
+                </div>
+                <a href="index.html" class="nav-link" id="nav-back-link">← Back to Website</a>
+            </div>
         </div>
     </nav>
 
     <main class="legal-main">
         <div class="container">
-            <div class="legal-card">
-                <div class="pill-badge">Legal & Segurança</div>
-                <h1 class="legal-title">Política de Privacidade</h1>
-                <div class="legal-date">Última atualização: 2 de Março de 2026</div>
-
-                <div class="legal-body">
-                    <p>Esta Política de Privacidade descreve como a <strong>Savings App</strong> ("nós" ou "a aplicação") recolhe, utiliza e protege as suas informações pessoais ao utilizar a nossa aplicação móvel.</p>
-
-                    <h2>1. Informações que Recolhemos</h2>
-                    
-                    <h3>A. Dados Locais (Offline-First)</h3>
-                    <p>A <strong>Savings App</strong> armazena os seus objetivos financeiros, metas e transações <strong>exclusivamente de forma local</strong> no seu dispositivo através de uma base de dados SQLite protegida. Estes dados nunca são transmitidos para servidores proprietários nossos.</p>
-
-                    <h3>B. Sincronização na Cloud (Opcional - Google Drive)</h3>
-                    <p>Se optar por ativar a Cópia de Segurança na Cloud através do início de sessão com a sua conta Google, os dados são guardados de forma privada na sua própria conta Google Drive (pasta restrita <em>App Data</em>). Nós não temos acesso ao restante conteúdo da sua conta Google Drive.</p>
-
-                    <h3>C. Dados de Publicidade</h3>
-                    <p>Utilizamos o <strong>Google AdMob</strong> para exibir anúncios que suportam o desenvolvimento da aplicação. A Google pode utilizar identificadores de publicidade do dispositivo para fornecer anúncios relevantes.</p>
-                    <p>Consulte a <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Política de Privacidade de Anúncios da Google</a> para mais informações.</p>
-
-                    <h2>2. Como Utilizamos as Informações</h2>
-                    <p>As informações são estritamente utilizadas para:</p>
-                    <ul>
-                        <li>Garantir o pleno funcionamento e cálculo de metas da aplicação.</li>
-                        <li>Permitir o backup e restauro voluntário via Google Drive.</li>
-                        <li>Exibir publicidade discreta de suporte via AdMob.</li>
-                    </ul>
-
-                    <h2>3. Proteção e Segurança</h2>
-                    <p>Os seus dados locais estão protegidos pela segurança nativa do seu dispositivo. Os dados de backup na cloud beneficiam dos mais avançados protocolos de segurança da infraestrutura Google.</p>
-
-                    <h2 id="data-deletion">4. Eliminação de Dados</h2>
-                    <p>Pode remover todos os dados associados à utilização da app:</p>
-                    <ul>
-                        <li><strong>Dados Locais:</strong> Desinstalar a app do dispositivo apaga permanentemente todas as metas e transações guardadas localmente.</li>
-                        <li><strong>Dados na Cloud (Google Drive):</strong> Pode revogar o acesso em <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a> selecionando "Savings App" e clicando em <strong>Remover Acesso</strong>.</li>
-                        <li><strong>Terminar Sessão:</strong> Pode desligar a sua conta Google diretamente no ecrã de Perfil dentro da app.</li>
-                    </ul>
-
-                    <h2>5. Contacto</h2>
-                    <p>Para qualquer questão sobre privacidade, contacte-nos através do canal de suporte da <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer">Google Play Store</a>.</p>
-                </div>
+            <div class="legal-card" id="legal-card-content">
+                <!-- Content will be injected dynamically based on active language -->
             </div>
         </div>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 Savings App. Todos os direitos reservados.</p>
+        <p id="footer-copy-text">&copy; 2026 Savings App. All rights reserved.</p>
     </footer>
+
+    <script>
+        const privacyTranslations = {
+            en: {
+                docTitle: "Privacy Policy | Savings App",
+                backLink: "← Back to Website",
+                footerCopy: "&copy; 2026 Savings App. All rights reserved.",
+                html: `
+                    <div class="pill-badge">Legal & Security</div>
+                    <h1 class="legal-title">Privacy Policy</h1>
+                    <div class="legal-date">Last updated: March 2026</div>
+
+                    <div class="legal-body">
+                        <p>This Privacy Policy explains how <strong>Savings App</strong> ("we", "us", or "the app") collects, uses, and safeguards your personal data when using our mobile application.</p>
+
+                        <h2>1. Information We Collect</h2>
+                        
+                        <h3>A. Local Data (Offline-First)</h3>
+                        <p><strong>Savings App</strong> stores your financial targets, progress, and transaction records <strong>strictly on your local device</strong> via a protected SQLite database. This data is never sent to any external or proprietary servers.</p>
+
+                        <h3>B. Cloud Synchronization (Optional - Google Drive)</h3>
+                        <p>If you voluntarily choose to sign in with your Google account to enable Cloud Backup, your data is saved privately inside your personal Google Drive account (within the isolated <em>App Data</em> folder). We have zero access to any other files or contents of your Google Drive.</p>
+
+                        <h3>C. Advertising Data</h3>
+                        <p>We use <strong>Google AdMob</strong> to display privacy-conscious advertisements that support application development. Google may use mobile advertising identifiers (AD_ID) to deliver relevant ad experiences.</p>
+                        <p>Read more on the <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google Ads Privacy Policy</a>.</p>
+
+                        <h2>2. How We Use Information</h2>
+                        <p>Collected device information is used strictly to:</p>
+                        <ul>
+                            <li>Ensure full calculation functionality and goal tracking within the app.</li>
+                            <li>Enable voluntary data backup and recovery via your personal Google Drive.</li>
+                            <li>Display discreet supporting ads via AdMob.</li>
+                        </ul>
+
+                        <h2>3. Security & Data Protection</h2>
+                        <p>Your local financial data is secured by your device's native operating system encryption. Cloud backup files are protected by Google's industry-standard enterprise security infrastructure.</p>
+
+                        <h2 id="data-deletion">4. Data Deletion & User Rights</h2>
+                        <p>You have full control over your data at all times:</p>
+                        <ul>
+                            <li><strong>Local Data:</strong> Uninstalling the application from your device permanently removes all local databases and records.</li>
+                            <li><strong>Google Drive Backup:</strong> You can revoke access anytime at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a> by selecting "Savings App" and clicking <strong>Remove Access</strong>.</li>
+                            <li><strong>Sign Out:</strong> You can disconnect your Google account anytime directly from the Profile screen inside the app.</li>
+                        </ul>
+
+                        <h2>5. Contact & Support</h2>
+                        <p>For any privacy inquiries or support, contact us through our official <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer">Google Play Store listing</a>.</p>
+                    </div>
+                `
+            },
+            pt: {
+                docTitle: "Política de Privacidade | Savings App",
+                backLink: "← Voltar ao Website",
+                footerCopy: "&copy; 2026 Savings App. Todos os direitos reservados.",
+                html: `
+                    <div class="pill-badge">Legal & Segurança</div>
+                    <h1 class="legal-title">Política de Privacidade</h1>
+                    <div class="legal-date">Última atualização: Março de 2026</div>
+
+                    <div class="legal-body">
+                        <p>Esta Política de Privacidade descreve como a <strong>Savings App</strong> ("nós" ou "a aplicação") recolhe, utiliza e protege as suas informações pessoais ao utilizar a nossa aplicação móvel.</p>
+
+                        <h2>1. Informações que Recolhemos</h2>
+                        
+                        <h3>A. Dados Locais (Offline-First)</h3>
+                        <p>A <strong>Savings App</strong> armazena os seus objetivos financeiros, metas e transações <strong>exclusivamente de forma local</strong> no seu dispositivo através de uma base de dados SQLite protegida. Estes dados nunca são transmitidos para servidores proprietários nossos.</p>
+
+                        <h3>B. Sincronização na Cloud (Opcional - Google Drive)</h3>
+                        <p>Se optar por ativar a Cópia de Segurança na Cloud através do início de sessão com a sua conta Google, os dados são guardados de forma privada na sua própria conta Google Drive (pasta restrita <em>App Data</em>). Nós não temos acesso ao restante conteúdo da sua conta Google Drive.</p>
+
+                        <h3>C. Dados de Publicidade</h3>
+                        <p>Utilizamos o <strong>Google AdMob</strong> para exibir anúncios que suportam o desenvolvimento da aplicação. A Google pode utilizar identificadores de publicidade do dispositivo para fornecer anúncios relevantes.</p>
+                        <p>Consulte a <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Política de Privacidade de Anúncios da Google</a> para mais informações.</p>
+
+                        <h2>2. Como Utilizamos as Informações</h2>
+                        <p>As informações são estritamente utilizadas para:</p>
+                        <ul>
+                            <li>Garantir o pleno funcionamento e cálculo de metas da aplicação.</li>
+                            <li>Permitir o backup e restauro voluntário via Google Drive.</li>
+                            <li>Exibir publicidade discreta de suporte via AdMob.</li>
+                        </ul>
+
+                        <h2>3. Proteção e Segurança</h2>
+                        <p>Os seus dados locais estão protegidos pela segurança nativa do seu dispositivo. Os dados de backup na cloud beneficiam dos mais avançados protocolos de segurança da infraestrutura Google.</p>
+
+                        <h2 id="data-deletion">4. Eliminação de Dados</h2>
+                        <p>Pode remover todos os dados associados à utilização da app:</p>
+                        <ul>
+                            <li><strong>Dados Locais:</strong> Desinstalar a app do dispositivo apaga permanentemente todas as metas e transações guardadas localmente.</li>
+                            <li><strong>Dados na Cloud (Google Drive):</strong> Pode revogar o acesso em <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a> selecionando "Savings App" e clicando em <strong>Remover Acesso</strong>.</li>
+                            <li><strong>Terminar Sessão:</strong> Pode desligar a sua conta Google diretamente no ecrã de Perfil dentro da app.</li>
+                        </ul>
+
+                        <h2>5. Contacto</h2>
+                        <p>Para qualquer questão sobre privacidade, contacte-nos através do canal de suporte da <a href="https://play.google.com/store/apps/details?id=com.bl.labs.savingsapp&hl=en-US&ah=6nPZxW0zlEnfRpXyiW2CA1B0YsE" target="_blank" rel="noopener noreferrer">Google Play Store</a>.</p>
+                    </div>
+                `
+            }
+        };
+
+        function setPrivacyLang(lang) {
+            if (!privacyTranslations[lang]) lang = 'en';
+            document.documentElement.lang = lang;
+            localStorage.setItem('savings_app_lang', lang);
+
+            document.getElementById('lang-btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-btn-pt').classList.toggle('active', lang === 'pt');
+
+            document.getElementById('privacy-doc-title').textContent = privacyTranslations[lang].docTitle;
+            document.getElementById('nav-back-link').textContent = privacyTranslations[lang].backLink;
+            document.getElementById('footer-copy-text').innerHTML = privacyTranslations[lang].footerCopy;
+            document.getElementById('legal-card-content').innerHTML = privacyTranslations[lang].html;
+        }
+
+        (function initPrivacyLang() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+            const savedLang = localStorage.getItem('savings_app_lang');
+            
+            let initialLang = 'en';
+            if (langParam && privacyTranslations[langParam]) {
+                initialLang = langParam;
+            } else if (savedLang && privacyTranslations[savedLang]) {
+                initialLang = savedLang;
+            }
+
+            setPrivacyLang(initialLang);
+        })();
+    </script>
 </body>
 
 </html>
