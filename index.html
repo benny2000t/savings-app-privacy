@@ -7,10 +7,10 @@
     <title id="doc-title">Savings App — Save with purpose. Reach your goals.</title>
     
     <!-- Meta & SEO -->
-    <meta id="meta-desc" name="description" content="The offline-first, secure, and smart savings tracker app for Android. Set goals, forecast progress with smart projections, and control your wealth.">
-    <meta name="keywords" content="savings, savings app, personal finance, financial goals, offline-first, savings calculator, compound interest, google play">
+    <meta id="meta-desc" name="description" content="The offline-first, secure, and smart savings tracker app for Android. 100% Cookie-free website. Set goals, forecast progress with smart projections, and control your wealth.">
+    <meta name="keywords" content="savings, savings app, personal finance, financial goals, offline-first, zero cookies, savings calculator, compound interest, google play">
     <meta id="og-title" property="og:title" content="Savings App — Save with purpose">
-    <meta id="og-desc" property="og:description" content="Sleek, privacy-first, and intelligent personal finance tracker.">
+    <meta id="og-desc" property="og:description" content="Sleek, privacy-first, zero cookies, and intelligent personal finance tracker.">
     <meta property="og:image" content="assets/icon.png">
     
     <!-- Google Fonts -->
@@ -364,7 +364,7 @@
 
         .hero-chips {
             display: flex;
-            gap: 18px;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
@@ -372,8 +372,12 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
         }
 
         .hero-chip-icon {
@@ -757,15 +761,15 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
         }
 
         .stat-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
-            padding: 24px;
+            padding: 22px 18px;
             text-align: center;
             backdrop-filter: blur(10px);
             transition: transform 0.2s ease;
@@ -778,7 +782,7 @@
 
         .stat-number {
             font-family: var(--font-head);
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 800;
             background: var(--grad-primary);
             -webkit-background-clip: text;
@@ -788,14 +792,15 @@
 
         .stat-label {
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             margin-bottom: 4px;
             color: #ffffff;
         }
 
         .stat-sub {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-secondary);
+            line-height: 1.45;
         }
 
         /* ================= INTERACTIVE CALCULATOR ================= */
@@ -1039,7 +1044,7 @@
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
-            padding: 32px;
+            padding: 30px;
             transition: all 0.25s ease;
         }
 
@@ -1065,7 +1070,7 @@
 
         .card-feature h3 {
             font-family: var(--font-head);
-            font-size: 1.2rem;
+            font-size: 1.18rem;
             font-weight: 700;
             margin-bottom: 10px;
             color: #ffffff;
@@ -1205,7 +1210,7 @@
         .footer-brand {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 8px;
         }
 
         .footer-brand-title {
@@ -1223,6 +1228,19 @@
             height: 30px;
             border-radius: 7px;
             object-fit: cover;
+        }
+
+        .cookie-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.76rem;
+            color: var(--emerald-light);
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            width: fit-content;
         }
 
         .footer-nav {
@@ -1287,7 +1305,7 @@
             }
 
             .stats-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1336,6 +1354,10 @@
 
             .footer-brand-title {
                 justify-content: center;
+            }
+
+            .cookie-badge {
+                margin: 0 auto;
             }
 
             .footer-nav {
@@ -1414,6 +1436,10 @@
                     <div class="hero-chip">
                         <span class="hero-chip-icon">✓</span>
                         <span data-i18n="chipNoDataSale">Zero Data Selling</span>
+                    </div>
+                    <div class="hero-chip">
+                        <span class="hero-chip-icon">✓</span>
+                        <span data-i18n="chipZeroCookies">Zero Cookies & Trackers</span>
                     </div>
                     <div class="hero-chip">
                         <span class="hero-chip-icon">✓</span>
@@ -1590,6 +1616,11 @@
                     <div class="stat-sub" data-i18n="stat2Sub">Protected SQLite database that never leaves your phone.</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-number" data-i18n="statCookieNum">0 Cookies</div>
+                    <div class="stat-label" data-i18n="statCookieLabel">No Web Tracking</div>
+                    <div class="stat-sub" data-i18n="statCookieSub">Zero tracking cookies and zero web profiling.</div>
+                </div>
+                <div class="stat-card">
                     <div class="stat-number" data-i18n="stat3Num">&lt; 3 sec</div>
                     <div class="stat-label" data-i18n="stat3Label">Instant Tracking</div>
                     <div class="stat-sub" data-i18n="stat3Sub">Add deposits and withdrawals in just 2 taps.</div>
@@ -1691,6 +1722,12 @@
                 </div>
 
                 <div class="card-feature">
+                    <div class="feature-icon-circle">🍪</div>
+                    <h3 data-i18n="featCookieTitle">Zero Cookies & Trackers</h3>
+                    <p data-i18n="featCookieDesc">No annoying cookie banners, zero analytics profiling, and zero cross-site trackers on both our app and website.</p>
+                </div>
+
+                <div class="card-feature">
                     <div class="feature-icon-circle">📈</div>
                     <h3 data-i18n="feat2Title">Smart Projection Engine</h3>
                     <p data-i18n="feat2Desc">Mathematical algorithms calculate realistic completion forecasts based on your deposit history and pace.</p>
@@ -1713,12 +1750,6 @@
                     <h3 data-i18n="feat5Title">Multi-Currency Support</h3>
                     <p data-i18n="feat5Desc">Universal formatting for any currency ($, €, £, R$, CHF, ¥, etc.) with localized number conventions.</p>
                 </div>
-
-                <div class="card-feature">
-                    <div class="feature-icon-circle">⚡</div>
-                    <h3 data-i18n="feat6Title">Fluid Gestures & Reordering</h3>
-                    <p data-i18n="feat6Desc">Drag-and-drop to reorder priority, swipe for quick actions, and filter by completion rate or total saved.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -1738,6 +1769,10 @@
                     <p data-i18n="faq1A">Yes. The app saves all records strictly on your local device via SQLite. We never have access to your balances or goals.</p>
                 </div>
                 <div class="faq-box">
+                    <h4 data-i18n="faqCookieQ">Do you use cookies or web trackers?</h4>
+                    <p data-i18n="faqCookieA">Never! Our website is 100% cookie-free and tracker-free. We do not use tracking pixels, analytics cookies, or profiling.</p>
+                </div>
+                <div class="faq-box">
                     <h4 data-i18n="faq2Q">Do I need to create an account?</h4>
                     <p data-i18n="faq2A">No! You can use the entire app with zero registration. Google login is only needed if you voluntarily enable Google Drive cloud backup.</p>
                 </div>
@@ -1745,7 +1780,7 @@
                     <h4 data-i18n="faq3Q">Does the app work without internet?</h4>
                     <p data-i18n="faq3A">Absolutely. Adding goals, logging transactions, and calculating projections work 100% offline.</p>
                 </div>
-                <div class="faq-box">
+                <div class="faq-box" style="grid-column: 1 / -1;">
                     <h4 data-i18n="faq4Q">Where can I read the Privacy Policy?</h4>
                     <p data-i18n-html="faq4A">You can review our full legal terms, data protection details, and account deletion steps on our <a href="privacy.html" style="color:#818cf8; text-decoration: underline;">Privacy Policy page</a>.</p>
                 </div>
@@ -1790,6 +1825,10 @@
                     <span>Savings App</span>
                 </div>
                 <p style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="footerSub">Smart, secure, and 100% private personal financial tracking.</p>
+                <div class="cookie-badge">
+                    <span>🍪</span>
+                    <span data-i18n="footerCookieBadge">100% Cookie-Free Website • No Tracking</span>
+                </div>
             </div>
             <div class="footer-nav">
                 <a href="#calculator" data-i18n="navCalculator">Calculator</a>
@@ -1811,9 +1850,9 @@
         const translations = {
             en: {
                 pageTitle: "Savings App — Save with purpose. Reach your goals.",
-                metaDesc: "The offline-first, secure, and smart savings tracker app for Android. Set goals, forecast progress with smart projections, and control your wealth.",
+                metaDesc: "The offline-first, secure, and smart savings tracker app for Android. 100% Cookie-free website. Set goals, forecast progress with smart projections, and control your wealth.",
                 ogTitle: "Savings App — Save with purpose",
-                ogDesc: "Sleek, privacy-first, and intelligent personal finance tracker.",
+                ogDesc: "Sleek, privacy-first, zero cookies, and intelligent personal finance tracker.",
                 navCalculator: "Calculator",
                 navHowItWorks: "How It Works",
                 navFeatures: "Features",
@@ -1826,6 +1865,7 @@
                 btnSimulate: "Simulate Savings ↓",
                 chipOffline: "100% Offline (SQLite)",
                 chipNoDataSale: "Zero Data Selling",
+                chipZeroCookies: "Zero Cookies & Trackers",
                 chipDriveBackup: "Google Drive Backup",
                 tabDashboard: "📊 Dashboard",
                 tabProjections: "📈 Projections",
@@ -1864,6 +1904,9 @@
                 stat2Num: "0 Bytes",
                 stat2Label: "Local Privacy",
                 stat2Sub: "Protected SQLite database that never leaves your phone.",
+                statCookieNum: "0 Cookies",
+                statCookieLabel: "No Web Tracking",
+                statCookieSub: "Zero tracking cookies and zero web profiling.",
                 stat3Num: "< 3 sec",
                 stat3Label: "Instant Tracking",
                 stat3Sub: "Add deposits and withdrawals in just 2 taps.",
@@ -1892,6 +1935,8 @@
                 featDesc: "Everything you need to manage your personal wealth without friction.",
                 feat1Title: "100% Offline & Private",
                 feat1Desc: "Your financial data belongs exclusively to you. Stored locally in a secure SQLite database without external servers.",
+                featCookieTitle: "Zero Cookies & Trackers",
+                featCookieDesc: "No annoying cookie banners, zero analytics profiling, and zero cross-site trackers on both our app and website.",
                 feat2Title: "Smart Projection Engine",
                 feat2Desc: "Mathematical algorithms calculate realistic completion forecasts based on your deposit history and pace.",
                 feat3Title: "Google Drive Backup",
@@ -1900,13 +1945,13 @@
                 feat4Desc: "Clean modern UI with fluid Dark/Light mode support, translucent cards, and multiple vibrant accent colors.",
                 feat5Title: "Multi-Currency Support",
                 feat5Desc: "Universal formatting for any currency ($, €, £, R$, CHF, ¥, etc.) with localized number conventions.",
-                feat6Title: "Fluid Gestures & Reordering",
-                feat6Desc: "Drag-and-drop to reorder priority, swipe for quick actions, and filter by completion rate or total saved.",
                 faqPill: "Frequently Asked Questions",
                 faqTitle: "Questions & Answers",
                 faqDesc: "Everything you need to know about Savings App.",
                 faq1Q: "Is my financial data secure?",
                 faq1A: "Yes. The app saves all records strictly on your local device via SQLite. We never have access to your balances or goals.",
+                faqCookieQ: "Do you use cookies or web trackers?",
+                faqCookieA: "Never! Our website is 100% cookie-free and tracker-free. We do not use tracking pixels, analytics cookies, or profiling.",
                 faq2Q: "Do I need to create an account?",
                 faq2A: "No! You can use the entire app with zero registration. Google login is only needed if you voluntarily enable Google Drive cloud backup.",
                 faq3Q: "Does the app work without internet?",
@@ -1917,6 +1962,7 @@
                 ctaDesc: "Available for free on Google Play. Download now and turn your financial plans into reality.",
                 qrScanText: "Scan QR Code",
                 footerSub: "Smart, secure, and 100% private personal financial tracking.",
+                footerCookieBadge: "100% Cookie-Free Website • No Tracking",
                 footerCopy: "&copy; 2026 Savings App. All rights reserved.",
                 months: [
                     "January", "February", "March", "April", "May", "June",
@@ -1927,9 +1973,9 @@
             },
             pt: {
                 pageTitle: "Savings App — Poupa com método. Conquista os teus objetivos.",
-                metaDesc: "A aplicação de poupança offline-first, segura e inteligente para Android. Define metas, simula poupanças com projeções inteligentes e acompanha o teu progresso.",
+                metaDesc: "A aplicação de poupança offline-first, segura e inteligente para Android. Website 100% livre de cookies. Define metas, simula poupanças e acompanha o teu progresso.",
                 ogTitle: "Savings App — Poupa com método",
-                ogDesc: "A aplicação de finanças pessoais elegante, offline-first e inteligente.",
+                ogDesc: "A aplicação de finanças pessoais elegante, offline-first, sem cookies e inteligente.",
                 navCalculator: "Calculadora",
                 navHowItWorks: "Como Funciona",
                 navFeatures: "Funcionalidades",
@@ -1942,6 +1988,7 @@
                 btnSimulate: "Simular Poupança ↓",
                 chipOffline: "100% Offline (SQLite)",
                 chipNoDataSale: "Zero Venda de Dados",
+                chipZeroCookies: "Zero Cookies & Rastreadores",
                 chipDriveBackup: "Backup Google Drive",
                 tabDashboard: "📊 Dashboard",
                 tabProjections: "📈 Projeções",
@@ -1980,6 +2027,9 @@
                 stat2Num: "0 Bytes",
                 stat2Label: "Privacidade Local",
                 stat2Sub: "Base de dados SQLite que nunca sai do teu telemóvel.",
+                statCookieNum: "0 Cookies",
+                statCookieLabel: "Sem Rastreamento Web",
+                statCookieSub: "Zero cookies de seguimento e zero perfis de dados.",
                 stat3Num: "< 3 seg",
                 stat3Label: "Registo Instantâneo",
                 stat3Sub: "Adiciona depósitos e levantamentos em 2 toques.",
@@ -2008,6 +2058,8 @@
                 featDesc: "Tudo o que precisas para gerir as tuas economias sem fricções.",
                 feat1Title: "100% Offline & Privado",
                 feat1Desc: "A tua informação é estritamente tua. Os dados vivem num banco de dados SQLite local no teu telemóvel, sem qualquer servidor externo.",
+                featCookieTitle: "Zero Cookies & Rastreadores",
+                featCookieDesc: "Sem avisos chatos de cookies, zero rastreamento de analítica e zero partilha de dados tanto na app como no site.",
                 feat2Title: "Motor de Projeção Inteligente",
                 feat2Desc: "Algoritmos matemáticos que calculam estimativas realistas de conclusão com base no teu histórico de depósitos.",
                 feat3Title: "Backup Google Drive",
@@ -2016,13 +2068,13 @@
                 feat4Desc: "Interface moderna com suporte fluido a Modo Claro e Escuro, efeitos translúcidos e dezenas de ícones personalizáveis.",
                 feat5Title: "Suporte Multi-Moeda",
                 feat5Desc: "Formatação flexível e inteligente para qualquer moeda mundial (€, $, £, R$, CHF, etc.) com respeito às regras de pontuação.",
-                feat6Title: "Gestos e Ordenação Ágil",
-                feat6Desc: "Arrasta para ordenar prioridades, desliza para ações rápidas e organiza por nome, valor acumulado ou percentagem.",
                 faqPill: "Dúvidas Frequentes",
                 faqTitle: "Perguntas e Respostas",
                 faqDesc: "Tudo o que precisas de saber sobre a aplicação.",
                 faq1Q: "Os meus dados financeiros estão seguros?",
                 faq1A: "Sim. A aplicação guarda todos os dados localmente no teu telemóvel através de SQLite. Nós não temos qualquer acesso ao teu saldo ou às tuas metas.",
+                faqCookieQ: "Este website usa cookies ou rastreadores?",
+                faqCookieA: "Nunca! O nosso website é 100% livre de cookies e de rastreadores. Não usamos pixels de seguimento nem cookies de analítica.",
                 faq2Q: "É obrigatório criar conta?",
                 faq2A: "Não! Podes usar a app a 100% sem registo. O login Google só é necessário caso queiras ativar o backup voluntário no Google Drive.",
                 faq3Q: "A aplicação funciona sem internet?",
@@ -2033,6 +2085,7 @@
                 ctaDesc: "Disponível gratuitamente na Google Play Store. Descarrega agora e transforma os teus planos em conquistas.",
                 qrScanText: "Lê o QR Code",
                 footerSub: "Controlo financeiro inteligente, seguro e 100% privado.",
+                footerCookieBadge: "Website 100% Livre de Cookies • Sem Rastreamento",
                 footerCopy: "&copy; 2026 Savings App. Todos os direitos reservados.",
                 months: [
                     "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
